@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE screen-definitions [
+	<!ELEMENT screen-definitions  (template-read-type? , screen+ )>
+	<!ELEMENT template-read-type  (#PCDATA )>
+	<!ELEMENT screen  (screen-name , template? , template-path? , template-file? , content-type? , parameter* )>
+	<!ELEMENT screen-name  (#PCDATA )>
+	<!ELEMENT template  (#PCDATA )>
+	<!ELEMENT template-path  (#PCDATA )>
+	<!ELEMENT template-file  (#PCDATA )>
+	<!ELEMENT content-type  (#PCDATA )>
+	<!ELEMENT parameter EMPTY>
+	<!ATTLIST parameter  key           CDATA  #REQUIRED
+	                     attribute      (include | file | class | text )  #IMPLIED
+	                     template-path CDATA  #IMPLIED
+	                     template-file CDATA  #IMPLIED
+	                     value         CDATA  #IMPLIED >
+]>
+<screen-definitions>
+  <screen>
+    <screen-name>default</screen-name>
+    <template>/index.jsp</template>
+    <content-type>text/html;charset=utf-8</content-type>
+  </screen>
+
+  <screen>
+    <screen-name>ApplicationException</screen-name>
+    <template>/jsp/common/exception/applicationexception.jsp</template>
+    <content-type>text/html;charset=utf-8</content-type>
+  </screen>
+  <screen>
+    <screen-name>SystemException</screen-name>
+    <template>/jsp/common/exception/systemexception.jsp</template>
+    <content-type>text/html;charset=utf-8</content-type>
+  </screen>
+
+  <!-- 关闭刷新 -->
+  <screen>
+    <screen-name>close</screen-name>
+    <template>/jsp/common/close.jsp</template>
+  </screen>
+
+  <!-- 刷新 -->
+  <screen>
+    <screen-name>refresh</screen-name>
+    <template>/jsp/common/refresh.jsp</template>
+  </screen>
+
+  <!--报表首页--> 
+  <screen>
+    <screen-name>report</screen-name>
+    <template>/jsp/module/report/report/report.jsp</template>
+  </screen>
+  <!--报表编辑-->
+  <screen>
+    <screen-name>reportedit</screen-name>
+    <template>/jsp/module/report/report/reportedit.jsp</template>
+  </screen>
+  <!--报表查看-->
+  <screen>
+    <screen-name>reportview</screen-name>
+    <template>/jsp/module/report/report/reportview.jsp</template>
+  </screen>
+  
+  <!--报表帮助-->
+  <screen>
+    <screen-name>winhelp</screen-name>
+    <template>/jsp/module/report/help/winhelp.jsp</template>
+  </screen>  
+  
+  <!--BL查看--> 
+  
+  <screen>
+    <screen-name>blinfoold</screen-name>
+    <template>/jsp/module/report/blinfo/blinfo.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>blinfo_if</screen-name>
+    <template>/jsp/module/report/blinfo/blinfo_if.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>blinfoedit_old</screen-name>
+    <template>/jsp/module/report/blinfo/blinfoedit_old.jsp</template>
+  </screen>
+  
+  
+  
+  <screen>
+    <screen-name>blinfo</screen-name>
+    <template>/jsp/module/report/blinfo/blinfoview.jsp</template>
+  </screen>
+  <!--BL编辑-->
+  <screen>
+    <screen-name>blinfoedit</screen-name>
+    <template>/jsp/module/report/blinfo/blinfoedit.jsp</template>
+  </screen>
+  
+  
+  <!--发票查看--> 
+  <screen>
+    <screen-name>invoice</screen-name>
+    <template>/jsp/module/report/invoice/invoice.jsp</template>
+  </screen>
+  
+  <!--保金保函查看--> 
+  <screen>
+    <screen-name>bjbh</screen-name>
+    <template>/jsp/module/report/bjbh/bjbh.jsp</template>
+  </screen>
+  
+  <!--通关到货查看--> 
+  <screen>
+    <screen-name>tgmx</screen-name>
+    <template>/jsp/module/report/tgmx/tgmxview.jsp</template>
+  </screen>
+  <!--通关到货编辑-->
+  <screen>
+    <screen-name>tgmxedit</screen-name>
+    <template>/jsp/module/report/tgmx/tgmxedit.jsp</template>
+  </screen>
+  
+  <!--减免税--> 
+  <screen>
+    <screen-name>jsmx</screen-name>
+    <template>/jsp/module/report/jsmx/jsmx.jsp</template>
+  </screen>
+  
+  <!--报关单查看--> 
+  <screen>
+    <screen-name>bgd</screen-name>
+    <template>/jsp/module/report/bgd/bgd.jsp</template>
+  </screen>
+  
+  <!--费用查看--> 
+  <screen>
+    <screen-name>fee</screen-name>
+    <template>/jsp/module/report/fee/feeview.jsp</template>
+  </screen>
+  <!--费用编辑-->
+  <screen>
+    <screen-name>feeedit</screen-name>
+    <template>/jsp/module/report/fee/feeedit.jsp</template>
+  </screen>
+  
+  <!--单据传递查看--> 
+  <screen>
+    <screen-name>bill</screen-name>
+    <template>/jsp/module/report/bill/billview.jsp</template>
+  </screen>
+  <!--单据传递编辑-->
+  <screen>
+    <screen-name>billedit</screen-name>
+    <template>/jsp/module/report/bill/billedit.jsp</template>
+  </screen>
+  <!--报表查询-税率-->
+  <screen>
+    <screen-name>jckratehome</screen-name>
+    <template>/jsp/module/report/jckrate/jckratehome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>jckrate</screen-name>
+    <template>/jsp/module/report/jckrate/jckrate.jsp</template>
+  </screen>
+  <!--报表查询-进出口月报表-->
+  <screen>
+    <screen-name>jcktablehome</screen-name>
+    <template>/jsp/module/report/jcktable/jcktablehome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>jcktable</screen-name>
+    <template>/jsp/module/report/jcktable/jcktabledisplay.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>jcktablebgdhlist</screen-name>
+    <template>/jsp/module/report/jcktable/jcktablebgdhlist.jsp</template>
+  </screen>
+  <!--报表查询-首页-->
+  <screen>
+    <screen-name>report_query</screen-name>
+    <template>/jsp/module/report/query/queryhome.jsp</template>
+  </screen>
+  <!--报表查询-查询结果-->
+  <screen>
+    <screen-name>dispquery</screen-name>
+    <template>/jsp/module/report/query/dispquery.jsp</template>
+  </screen>
+  
+  
+  <!--**************************************************************************************************************-->	
+  <!--测试页面-->
+  <screen>
+    <screen-name>test</screen-name>
+    <template>/jsp/test.jsp</template>
+  </screen>	
+
+
+  <!--**************************************************************************************************************-->	
+  <!-- 首页 -->
+  <screen>
+    <screen-name>home</screen-name>
+    <template>/jsp/module/home/first.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->
+  <!--申报业务-->		
+  <screen>
+    <screen-name>commonxml</screen-name>
+    <template>/jsp/sys/yw/commonxml.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 用户权限首页 -->
+  
+  <screen>
+    <screen-name>userhome</screen-name>
+    <template>/jsp/sys/user/userhome.jsp</template>
+  </screen>	
+
+  <!-- 用户权限设置 -->
+  <screen>
+    <screen-name>usersetoperpower</screen-name>
+    <template>/jsp/sys/user/usersetoperpower.jsp</template>
+  </screen>	
+
+  <!--**************************************************************************************************************-->	
+  <!-- 国家设置 -->
+  <screen>
+    <screen-name>gjszhome</screen-name>
+    <template>/jsp/sys/gjsz/gjszhome.jsp</template>
+  </screen>	
+
+  <!--**************************************************************************************************************-->	
+  <!-- 币制及汇率设置 -->
+  <screen>
+    <screen-name>bzjhlszhome</screen-name>
+    <template>/jsp/sys/bzjhlsz/bzjhlszhome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 供应商设置 -->
+  <screen>
+    <screen-name>vendorhome</screen-name>
+    <template>/jsp/sys/vendor/vendorhome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+   <!-- 运货商设置 -->
+  <screen>
+    <screen-name>forwarderhome</screen-name>
+    <template>/jsp/sys/forwarder/forwarderhome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 计量单位首页 -->
+  <screen>
+    <screen-name>unithome</screen-name>
+    <template>/jsp/sys/unit/unithome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 商品编码首页 -->
+  <screen>
+    <screen-name>producthome</screen-name>
+    <template>/jsp/sys/product/producthome.jsp</template>
+  </screen>
+  <!--**************************************************************************************************************-->	
+  <!-- 部门首页 -->
+  <screen>
+    <screen-name>depthome</screen-name>
+    <template>/jsp/sys/dept/depthome.jsp</template>
+  </screen>
+  <!--**************************************************************************************************************-->	
+  <!-- 操作日志首页 -->
+  <screen>
+    <screen-name>czrzhome</screen-name>
+    <template>/jsp/sys/czrz/czrzhome.jsp</template>
+  </screen>	
+<!--**************************************************************************************************************-->	
+<!-- 帐册号设置 -->
+  <screen>
+    <screen-name>zchhome</screen-name>
+    <template>/jsp/sys/zch/zchhome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 数据字典首页 -->
+  <screen>
+    <screen-name>datatoolhome</screen-name>
+    <template>/jsp/sys/datatool/datatoolhome.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 企业信息首页 -->
+  <screen>
+    <screen-name>qyhome</screen-name>
+    <template>/jsp/sys/qyinfo/qyhome.jsp</template>
+  </screen>	
+  <!-- 企业信息编辑 -->
+  <screen>
+    <screen-name>qyedit</screen-name>
+    <template>/jsp/sys/qyinfo/qyedit.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!-- 备案-分册取得主册信息 -->
+  <screen>
+    <screen-name>getinfo</screen-name>
+    <template>/jsp/module/pub/getinfo.jsp</template>
+  </screen>
+  <!--**************************************************************************************************************-->	
+  
+  <!-- 备案-电子帐册首页 -->
+  <screen>
+    <screen-name>dzzchome</screen-name>
+    <template>/jsp/module/ebook/dzzc/home.jsp</template>
+  </screen>	
+  <!-- 备案-电子帐册变更 -->
+  <screen>
+    <screen-name>changedzzc</screen-name>
+    <template>/jsp/module/ebook/dzzc/change.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册申请 -->
+  <screen>
+    <screen-name>applydzzc</screen-name>
+    <template>/jsp/module/ebook/dzzc/change.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册编辑 -->
+  <screen>
+    <screen-name>editdzzc</screen-name>
+    <template>/jsp/module/ebook/dzzc/editdzzc.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册查看 -->
+  <screen>
+    <screen-name>viewdzzc</screen-name>
+    <template>/jsp/module/ebook/dzzc/viewdzzc.jsp</template>
+  </screen>
+  
+  <!-- 备案-电子帐册料件列表查看 -->
+  <screen>
+    <screen-name>listdzzclj</screen-name>
+    <template>/jsp/module/ebook/dzzc/lj/listdzzclj.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册归并料件列表查看 -->
+  <screen>
+    <screen-name>listdzzcgblj</screen-name>
+    <template>/jsp/module/ebook/dzzc/lj/listdzzcgblj.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册料件列表编辑 -->
+  <screen>
+    <screen-name>editdzzclj</screen-name>
+    <template>/jsp/module/ebook/dzzc/lj/listdzzclj.jsp</template>
+  </screen>
+  
+  <!-- 备案-电子帐册成品列表查看 -->
+  <screen>
+    <screen-name>listdzzccp</screen-name>
+    <template>/jsp/module/ebook/dzzc/cp/listdzzccp.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册归并成品列表查看 -->
+  <screen>
+    <screen-name>listdzzcgbcp</screen-name>
+    <template>/jsp/module/ebook/dzzc/cp/listdzzcgbcp.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册成品列表编辑 -->
+  <screen>
+    <screen-name>editdzzccp</screen-name>
+    <template>/jsp/module/ebook/dzzc/cp/listdzzccp.jsp</template>
+  </screen>
+  
+  <!-- 备案-电子帐册BOM列表查看 -->
+  <screen>
+    <screen-name>listdzzcbom</screen-name>
+    <template>/jsp/module/ebook/dzzc/bom/listdzzcbom.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册BOM新增料件 -->
+  <screen>
+    <screen-name>newdzzcbomlj</screen-name>
+    <template>/jsp/module/ebook/dzzc/bom/listdzzcbom.jsp</template>
+  </screen>
+  <!-- 备案-电子帐册BOM编辑料件 -->
+  <screen>
+    <screen-name>editdzzcbomlj</screen-name>
+    <template>/jsp/module/ebook/dzzc/bom/listdzzcbom.jsp</template>
+  </screen>
+  <!--**************************************************************************************************************-->	
+  <screen>
+    <screen-name>getywstatus</screen-name>
+    <template>/jsp/module/pub/getywstatus.jsp</template>
+  </screen>
+  <!--**************************************************************************************************************-->	
+  <!--进口报关单-新建--> 
+  <screen>
+    <screen-name>jkbgdnew</screen-name>
+    <template>/jsp/module/jkyw/bgd/editjkbgd.jsp</template>
+  </screen>	 
+  <!--进口报关单-编辑--> 
+  <screen>
+    <screen-name>jkbgdedit</screen-name>
+    <template>/jsp/module/jkyw/bgd/editjkbgd.jsp</template>
+  </screen>	 
+  <!--进口报关单-查看--> 
+  <screen>
+    <screen-name>jkbgdview</screen-name>
+    <template>/jsp/module/jkyw/bgd/viewjkbgd.jsp</template>
+  </screen>	 
+  
+ <!--**************************************************************************************************************-->	
+  <!--出口报关单-新建--> 
+  <screen>
+    <screen-name>ckbgdnew</screen-name>
+    <template>/jsp/module/ckyw/bgd/editckbgd.jsp</template>
+  </screen>	 
+  <!--出口报关单-编辑--> 
+  <screen>
+    <screen-name>ckbgdedit</screen-name>
+    <template>/jsp/module/ckyw/bgd/editckbgd.jsp</template>
+  </screen>	 
+  <!--出口报关单-查看--> 
+  <screen>
+    <screen-name>ckbgdview</screen-name>
+    <template>/jsp/module/ckyw/bgd/viewckbgd.jsp</template>
+  </screen>	 
+  
+  <!--**************************************************************************************************************-->	
+  <!--一般贸易-进口报关单-新建--> 
+  <screen>
+    <screen-name>tradejkbgdnew</screen-name>
+    <template>/jsp/module/trade/bgd/editjkbgd.jsp</template>
+  </screen>	 
+  <!--一般贸易-进口报关单-编辑--> 
+  <screen>
+    <screen-name>tradejkbgdedit</screen-name>
+    <template>/jsp/module/trade/bgd/editjkbgd.jsp</template>
+  </screen>	 
+  <!--一般贸易-进口报关单-查看--> 
+  <screen>
+    <screen-name>tradejkbgdview</screen-name>
+    <template>/jsp/module/trade/bgd/viewjkbgd.jsp</template>
+  </screen>	 
+  
+ <!--**************************************************************************************************************-->	
+  <!--一般贸易-出口报关单-新建--> 
+  <screen>
+    <screen-name>tradeckbgdnew</screen-name>
+    <template>/jsp/module/trade/bgd/editckbgd.jsp</template>
+  </screen>	 
+  <!--一般贸易-出口报关单-编辑--> 
+  <screen>
+    <screen-name>tradeckbgdedit</screen-name>
+    <template>/jsp/module/trade/bgd/editckbgd.jsp</template>
+  </screen>	 
+  <!--一般贸易-出口报关单-查看--> 
+  <screen>
+    <screen-name>tradeckbgdview</screen-name>
+    <template>/jsp/module/trade/bgd/viewckbgd.jsp</template>
+  </screen>	
+  <!--**************************************************************************************************************-->	
+  <!--进口料件-首页--> 
+  <screen>
+    <screen-name>jkljhome</screen-name>
+    <template>/jsp/module/jkyw/jklj/jkljhome.jsp</template>
+  </screen>	 
+  <!--进口料件-增加料件--> 
+  <screen>
+    <screen-name>jkljadd</screen-name>
+    <template>/jsp/module/jkyw/jklj/jkljadd.jsp</template>
+  </screen>	 
+  <!--进口料件-料件归并--> 
+  <screen>
+    <screen-name>jkljgb</screen-name>
+    <template>/jsp/module/jkyw/jklj/jkljgb.jsp</template>
+  </screen>
+  
+   <!--进口料件-IE接口--> 
+  <screen>
+    <screen-name>getxmlinfo</screen-name>
+    <template>/jsp/module/pub/getxmlinfo.jsp</template>
+  </screen>
+  <!--进口料件-差异信息--> 
+  <screen>
+    <screen-name>jkljdiff</screen-name>
+    <template>/jsp/module/jkyw/jklj/jkdiff.jsp</template>
+  </screen>
+  <!--进口设备-差异信息--> 
+  <screen>
+    <screen-name>jksbdiff</screen-name>
+    <template>/jsp/module/jkyw/jksb/jkdiff.jsp</template>
+  </screen>
+  <!--料件换货-差异信息--> 
+  <screen>
+    <screen-name>ljhhdiff</screen-name>
+    <template>/jsp/module/jkyw/ljhh/jkdiff.jsp</template>
+  </screen>
+  <!--其他进口-差异信息--> 
+  <screen>
+    <screen-name>otherjkdiff</screen-name>
+    <template>/jsp/module/jkyw/otherjk/jkdiff.jsp</template>
+  </screen>
+  <!--关联进口-差异信息--> 
+  <screen>
+    <screen-name>rejkdiff</screen-name>
+    <template>/jsp/module/jkyw/rejk/jkdiff.jsp</template>
+  </screen>
+  <!--结转转入-差异信息--> 
+  <screen>
+    <screen-name>sjgzrdiff</screen-name>
+    <template>/jsp/module/jkyw/sjgzr/jkdiff.jsp</template>
+  </screen>
+  <!--成品退货-差异信息--> 
+  <screen>
+    <screen-name>cpthdiff</screen-name>
+    <template>/jsp/module/jkyw/cpth/jkdiff.jsp</template>
+  </screen>
+  
+  
+
+
+<!--报关单导入--> 
+  <screen>
+    <screen-name>daoru</screen-name>
+    <template>/jsp/module/pub/getdaoruxmlinfo.jsp</template>
+  </screen>
+  
+  <!--**************************************************************************************************************-->	
+  <!--结转转入-首页--> 
+  <screen>
+    <screen-name>sjgzrhome</screen-name>
+    <template>/jsp/module/jkyw/sjgzr/sjgzrhome.jsp</template>
+  </screen>	 
+  <!--结转转入-增加料件--> 
+  <screen>
+    <screen-name>sjgzradd</screen-name>
+    <template>/jsp/module/jkyw/sjgzr/sjgzradd.jsp</template>
+  </screen>	 
+  <!--结转转入-料件归并--> 
+  <screen>
+    <screen-name>sjgzrgb</screen-name>
+    <template>/jsp/module/jkyw/sjgzr/sjgzrgb.jsp</template>
+  </screen>
+  
+  <!--**************************************************************************************************************-->	
+  <!--料件换货-首页--> 
+  <screen>
+    <screen-name>ljhhhome</screen-name>
+    <template>/jsp/module/jkyw/ljhh/ljhhhome.jsp</template>
+  </screen>	 
+  <!--料件换货-增加料件--> 
+  <screen>
+    <screen-name>ljhhadd</screen-name>
+    <template>/jsp/module/jkyw/ljhh/ljhhadd.jsp</template>
+  </screen>	 
+  <!--料件换货-料件归并--> 
+  <screen>
+    <screen-name>ljhhgb</screen-name>
+    <template>/jsp/module/jkyw/ljhh/ljhhgb.jsp</template>
+  </screen>
+  
+   <!--**************************************************************************************************************-->	
+  <!--料件退货-首页--> 
+  <screen>
+    <screen-name>ljthhome</screen-name>
+    <template>/jsp/module/ckyw/ljth/ljthhome.jsp</template>
+  </screen>	 
+  <!--料件退货-增加料件--> 
+  <screen>
+    <screen-name>ljthadd</screen-name>
+    <template>/jsp/module/ckyw/ljth/ljthadd.jsp</template>
+  </screen>	 
+  <!--料件退货-料件归并--> 
+  <screen>
+    <screen-name>ljthgb</screen-name>
+    <template>/jsp/module/ckyw/ljth/ljthgb.jsp</template>
+  </screen>
+  
+   <!--**************************************************************************************************************-->	
+  <!--放弃销毁-首页--> 
+  <screen>
+    <screen-name>fqxhhome</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhhome.jsp</template>
+  </screen>	 
+  <!--放弃销毁-增加料件--> 
+  <screen>
+    <screen-name>fqxhadd</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhadd.jsp</template>
+  </screen>	
+  <!--放弃销毁-增加料件--> 
+  <screen>
+    <screen-name>fqxhmx</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhmx.jsp</template>
+  </screen>	 
+  <!--料件内销-料件跟踪--> 
+  <screen>
+    <screen-name>fqxhjk</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhjk.jsp</template>
+  </screen>
+  <!--放弃销毁-料件归并--> 
+  <screen>
+    <screen-name>fqxhgb</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhgb.jsp</template>
+  </screen>
+  <!-- 20091109   Sun,Xiaofeng  添加放弃销毁业务校验功能 -->
+  <!--放弃销毁-业务校验-->
+  <screen>
+    <screen-name>fqxhjy</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhjy.jsp</template>
+  </screen>	 
+  
+  <!--放弃销毁-发票跟踪信息--> 
+  <screen>
+    <screen-name>fqxhinvoice</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhinvoice.jsp</template>
+  </screen>
+  <!--放弃销毁-导入--> 
+  <screen>
+    <screen-name>fqxhinput</screen-name>
+    <template>/jsp/module/ckyw/fqxh/fqxhinput.jsp</template>
+  </screen>
+  
+  <!--料件内销-显示内销的料件--> 
+  <screen>
+    <screen-name>listfqxh</screen-name>
+    <template>/jsp/module/ckyw/fqxh/selectfqxh.jsp</template>
+  </screen>
+  
+  <!--**************************************************************************************************************-->	
+  <!--进口设备-首页--> 
+  <screen>
+    <screen-name>jksbhome</screen-name>
+    <template>/jsp/module/jkyw/jksb/jksbhome.jsp</template>
+  </screen>	 
+  <!--进口设备-增加料件--> 
+  <screen>
+    <screen-name>jksbadd</screen-name>
+    <template>/jsp/module/jkyw/jksb/jksbadd.jsp</template>
+  </screen>	 
+  <!--进口设备-料件归并--> 
+  <screen>
+    <screen-name>jksbgb</screen-name>
+    <template>/jsp/module/jkyw/jksb/jksbgb.jsp</template>
+  </screen>
+  
+   <!--**************************************************************************************************************-->	
+  <!--其他进口-首页--> 
+  <screen>
+    <screen-name>otherjkhome</screen-name>
+    <template>/jsp/module/jkyw/otherjk/otherjkhome.jsp</template>
+  </screen>	 
+  <!--其他进口-增加料件--> 
+  <screen>
+    <screen-name>otherjkadd</screen-name>
+    <template>/jsp/module/jkyw/otherjk/otherjkadd.jsp</template>
+  </screen>	 
+  <!--其他进口-料件归并--> 
+  <screen>
+    <screen-name>otherjkgb</screen-name>
+    <template>/jsp/module/jkyw/otherjk/otherjkgb.jsp</template>
+  </screen>
+   <!--**************************************************************************************************************-->	
+  <!--关联进口-首页--> 
+  <screen>
+    <screen-name>rejkhome</screen-name>
+    <template>/jsp/module/jkyw/rejk/rejkhome.jsp</template>
+  </screen>	 
+  <!--关联进口-增加料件--> 
+  <screen>
+    <screen-name>rejkadd</screen-name>
+    <template>/jsp/module/jkyw/rejk/rejkadd.jsp</template>
+  </screen>	 
+  <!--关联进口-料件归并--> 
+  <screen>
+    <screen-name>rejkgb</screen-name>
+    <template>/jsp/module/jkyw/rejk/rejkgb.jsp</template>
+  </screen>	 
+  <!--关联进口-料件归并--> 
+  <screen>
+    <screen-name>rejkbgd</screen-name>
+    <template>/jsp/module/jkyw/rejk/rejkbgd.jsp</template>
+  </screen>
+   <!--**************************************************************************************************************-->	
+  <!--关联出口-首页--> 
+  <screen>
+    <screen-name>reckhome</screen-name>
+    <template>/jsp/module/ckyw/reck/reckhome.jsp</template>
+  </screen>	 
+  <!--关联出口-增加料件--> 
+  <screen>
+    <screen-name>reckadd</screen-name>
+    <template>/jsp/module/ckyw/reck/reckadd.jsp</template>
+  </screen>	 
+  <!--关联出口-料件归并--> 
+  <screen>
+    <screen-name>reckgb</screen-name>
+    <template>/jsp/module/ckyw/reck/reckgb.jsp</template>
+  </screen>	 
+  <!--关联出口-料件归并--> 
+  <screen>
+    <screen-name>reckbgd</screen-name>
+    <template>/jsp/module/ckyw/reck/reckbgd.jsp</template>
+  </screen>
+  
+   <!--**************************************************************************************************************-->	
+  <!--其他出口-首页--> 
+  <screen>
+    <screen-name>otherckhome</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckhome.jsp</template>
+  </screen>	 
+  <!--其他出口-增加料件--> 
+  <screen>
+    <screen-name>otherckadd</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckadd.jsp</template>
+  </screen>	 
+  <!--其他出口-料件归并--> 
+  <screen>
+    <screen-name>otherckgb</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckgb.jsp</template>
+  </screen>
+  
+   <!--**************************************************************************************************************-->	
+  <!--核销-首页--> 
+  <screen>
+    <screen-name>hxhome</screen-name>
+    <template>/jsp/module/hchx/hx/hxhome.jsp</template>
+  </screen>	 
+  <!--核销-增加核销--> 
+  <screen>
+    <screen-name>hxadd</screen-name>
+    <template>/jsp/module/hchx/hx/hxadd.jsp</template>
+  </screen>	 
+   <!--核销-归并--> 
+  <screen>
+    <screen-name>hxgb</screen-name>
+    <template>/jsp/module/hchx/hx/hxgb.jsp</template>
+  </screen>	 
+   <!--核销-进料单--> 
+  <screen>
+    <screen-name>hxjld</screen-name>
+    <template>/jsp/module/hchx/hx/hxjld.jsp</template>
+  </screen>	 
+   <!--核销-耗料单--> 
+  <screen>
+    <screen-name>hxhld</screen-name>
+    <template>/jsp/module/hchx/hx/hxhld.jsp</template>
+  </screen>	 
+   <!--核销-成品明细--> 
+  <screen>
+    <screen-name>hxcpmx</screen-name>
+    <template>/jsp/module/hchx/hx/hxcpmx.jsp</template>
+  </screen>	 
+   <!--核销-料件核算表--> 
+  <screen>
+    <screen-name>hxljhsb</screen-name>
+    <template>/jsp/module/hchx/hx/hxljhsb.jsp</template>
+  </screen>	 
+   <!--核销-成品核算表--> 
+  <screen>
+    <screen-name>hxcphsb</screen-name>
+    <template>/jsp/module/hchx/hx/hxcphsb.jsp</template>
+  </screen>	 
+   <!--核销-帐册单耗--> 
+  <screen>
+    <screen-name>hxzcdh</screen-name>
+    <template>/jsp/module/hchx/hx/hxzcdh.jsp</template>
+  </screen>	 
+  
+  
+  <!--**************************************************************************************************************-->	
+  <!--核查-新建--> 
+  <screen>
+    <screen-name>zqhchome</screen-name>
+    <template>/jsp/module/jchx/zqhc/zqhchome.jsp</template>
+  </screen>	 
+  <!--核查-编辑保存--> 
+  <screen>
+    <screen-name>zqhcadd</screen-name>
+    <template>/jsp/module/jchx/zqhc/zqhcadd.jsp</template>
+  </screen>	
+  <!--核查-编辑保存--> 
+  <screen>
+    <screen-name>hccpmx</screen-name>
+    <template>/jsp/module/jchx/zqhc/cpmx.jsp</template>
+  </screen>	 	
+  <!--核查-编辑保存--> 
+  <screen>
+    <screen-name>hcljmx</screen-name>
+    <template>/jsp/module/jchx/zqhc/hlmx.jsp</template>
+  </screen>	 	 	
+  <!--**************************************************************************************************************-->	
+  <!--成品出口-首页--> 
+  <screen>
+    <screen-name>cpckhome</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckhome.jsp</template>
+  </screen>	 
+  <!--成品出口-增加成品--> 
+  <screen>
+    <screen-name>cpckadd</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckadd.jsp</template>
+  </screen>	 
+  <!--成品出口-归并--> 
+  <screen>
+    <screen-name>cpckgb</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckgb.jsp</template>
+  </screen>	 
+  <!--成品出口-明细--> 
+  <screen>
+    <screen-name>cpckmx</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckmx.jsp</template>
+  </screen>	 
+  <!--成品出口-明细单耗--> 
+  <screen>
+    <screen-name>cpckmxdh</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckmxdh.jsp</template>
+  </screen>	 
+  <!--成品出口-归并单耗--> 
+  <screen>
+    <screen-name>cpckgbdh</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckgbdh.jsp</template>
+  </screen>	  
+  <!--成品出口-校验最大单耗--> 
+  <screen>
+    <screen-name>cpckbomchk</screen-name>
+    <template>/jsp/module/ckyw/cpck/cpckbomchk.jsp</template>
+  </screen>	  
+ 
+  <!--**************************************************************************************************************-->	
+  <!--内销-首页--> 
+  <screen>
+    <screen-name>nxhome</screen-name>
+    <template>/jsp/module/ckyw/nx/nxhome.jsp</template>
+  </screen>	 
+  <!--内销-增加成品--> 
+  <screen>
+    <screen-name>nxadd</screen-name>
+    <template>/jsp/module/ckyw/nx/nxadd.jsp</template>
+  </screen>	 
+  <!--内销-归并--> 
+  <screen>
+    <screen-name>nxgb</screen-name>
+    <template>/jsp/module/ckyw/nx/nxgb.jsp</template>
+  </screen>	 
+  <!--内销-明细--> 
+  <screen>
+    <screen-name>nxmx</screen-name>
+    <template>/jsp/module/ckyw/nx/nxmx.jsp</template>
+  </screen>	 
+  <!--内销-明细单耗--> 
+  <screen>
+    <screen-name>nxmxdh</screen-name>
+    <template>/jsp/module/ckyw/nx/nxmxdh.jsp</template>
+  </screen>	 
+  <!--内销-归并单耗--> 
+  <screen>
+    <screen-name>nxgbdh</screen-name>
+    <template>/jsp/module/ckyw/nx/nxgbdh.jsp</template>
+  </screen>
+  <!--内销-发票跟踪信息--> 
+  <screen>
+    <screen-name>nxinvoice</screen-name>
+    <template>/jsp/module/ckyw/nx/nxinvoice.jsp</template>
+  </screen> 
+  <!--内销-业务校验--> 
+  <screen>
+    <screen-name>nxchk</screen-name>
+    <template>/jsp/module/ckyw/nx/nxchk.jsp</template>
+  </screen>	  
+ 
+  <!--**************************************************************************************************************-->	
+  <!--其他出口-首页--> 
+  <screen>
+    <screen-name>otherckhome</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckhome.jsp</template>
+  </screen>	 
+  <!--其他出口-增加成品--> 
+  <screen>
+    <screen-name>otherckadd</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckadd.jsp</template>
+  </screen>	 
+  <!--其他出口-归并--> 
+  <screen>
+    <screen-name>otherckgb</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckgb.jsp</template>
+  </screen>	 
+  <!--其他出口-明细--> 
+  <screen>
+    <screen-name>otherckmx</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckmx.jsp</template>
+  </screen>	 
+  <!--其他出口-明细单耗--> 
+  <screen>
+    <screen-name>otherckmxdh</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckmxdh.jsp</template>
+  </screen>	 
+  <!--其他出口-归并单耗--> 
+  <screen>
+    <screen-name>otherckgbdh</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckgbdh.jsp</template>
+  </screen>
+  <!--其他出口-发票跟踪信息--> 
+  <screen>
+    <screen-name>otherckinvoice</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckinvoice.jsp</template>
+  </screen>
+  <!--其他出口-业务校验--> 
+  <screen>
+    <screen-name>otherckchk</screen-name>
+    <template>/jsp/module/ckyw/otherck/otherckchk.jsp</template>
+  </screen>	  
+  
+   <!--**************************************************************************************************************-->	
+  <!--料件内销-首页--> 
+  <screen>
+    <screen-name>ljnxhome</screen-name>
+    <template>/jsp/module/ckyw/ljnx/ljnxhome.jsp</template>
+  </screen>	 
+  <!--料件内销-增加料件--> 
+  <screen>
+    <screen-name>ljnxadd</screen-name>
+    <template>/jsp/module/ckyw/ljnx/ljnxadd.jsp</template>
+  </screen>	 
+  <!--料件内销-料件跟踪--> 
+  <screen>
+    <screen-name>ljnxjk</screen-name>
+    <template>/jsp/module/ckyw/ljnx/ljnxjk.jsp</template>
+  </screen>
+  <!--料件内销-运费--> 
+  <screen>
+    <screen-name>ljnxtransfee</screen-name>
+    <template>/jsp/module/ckyw/ljnx/ljnxtransfee.jsp</template>
+  </screen>
+  <!--料件内销-料件归并--> 
+  <screen>
+    <screen-name>ljnxgb</screen-name>
+    <template>/jsp/module/ckyw/ljnx/ljnxgb.jsp</template>
+  </screen>
+  
+  <!--料件内销-显示内销的料件--> 
+  <screen>
+    <screen-name>listnxlj</screen-name>
+    <template>/jsp/module/ckyw/ljnx/selectlj.jsp</template>
+  </screen>
+ 
+   <!--**************************************************************************************************************-->	
+  <!--其他内销-首页--> 
+  <screen>
+    <screen-name>othernxhome</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxhome.jsp</template>
+  </screen>	 
+  <!--其他内销-增加料件--> 
+  <screen>
+    <screen-name>othernxadd</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxadd.jsp</template>
+  </screen>	 
+  <!--其他内销-增加料件--> 
+  <screen>
+    <screen-name>othernxinput</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxinput.jsp</template>
+  </screen>	 
+  <!--其他内销-料件跟踪--> 
+  <screen>
+    <screen-name>othernxjk</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxjk.jsp</template>
+  </screen>
+  <!--其他内销-运费--> 
+  <screen>
+    <screen-name>othernxtransfee</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxtransfee.jsp</template>
+  </screen>
+  <!--其他内销-料件归并--> 
+  <screen>
+    <screen-name>othernxgb</screen-name>
+    <template>/jsp/module/ckyw/othernx/othernxgb.jsp</template>
+  </screen>
+ 
+  <!--**************************************************************************************************************-->	
+  <!--结转转出-首页--> 
+  <screen>
+    <screen-name>sjgzchome</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzchome.jsp</template>
+  </screen>	 
+  <!--结转转出-增加成品--> 
+  <screen>
+    <screen-name>sjgzcadd</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcadd.jsp</template>
+  </screen>	 
+  <!--结转转出-归并--> 
+  <screen>
+    <screen-name>sjgzcgb</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcgb.jsp</template>
+  </screen>	 
+  <!--结转转出-明细--> 
+  <screen>
+    <screen-name>sjgzcmx</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcmx.jsp</template>
+  </screen>	 
+  <!--结转转出-明细单耗--> 
+  <screen>
+    <screen-name>sjgzcmxdh</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcmxdh.jsp</template>
+  </screen>	 
+  <!--结转转出-归并单耗--> 
+  <screen>
+    <screen-name>sjgzcgbdh</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcgbdh.jsp</template>
+  </screen>
+  <!--结转转出-发票跟踪信息--> 
+  <screen>
+    <screen-name>sjgzcinvoice</screen-name>
+    <template>/jsp/module/ckyw/sjgzc/sjgzcinvoice.jsp</template>
+  </screen>
+ 
+  <!--**************************************************************************************************************-->	
+  <!--成品换货-首页--> 
+  <screen>
+    <screen-name>cphhhome</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhhome.jsp</template>
+  </screen>	 
+  <!--成品换货-增加成品--> 
+  <screen>
+    <screen-name>cphhadd</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhadd.jsp</template>
+  </screen>	 
+  <!--成品换货-归并--> 
+  <screen>
+    <screen-name>cphhgb</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhgb.jsp</template>
+  </screen>	 
+  <!--成品换货-明细--> 
+  <screen>
+    <screen-name>cphhmx</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhmx.jsp</template>
+  </screen>	 
+  <!--成品换货-明细单耗--> 
+  <screen>
+    <screen-name>cphhmxdh</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhmxdh.jsp</template>
+  </screen>	 
+  <!--成品换货-归并单耗--> 
+  <screen>
+    <screen-name>cphhgbdh</screen-name>
+    <template>/jsp/module/ckyw/cphh/cphhgbdh.jsp</template>
+  </screen>
+ 
+  <!--**************************************************************************************************************-->	
+  <!--成品退货-首页--> 
+  <screen>
+    <screen-name>cpthhome</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthhome.jsp</template>
+  </screen>	 
+  <!--成品退货-增加成品--> 
+  <screen>
+    <screen-name>cpthadd</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthadd.jsp</template>
+  </screen>	 
+  <!--成品退货-归并--> 
+  <screen>
+    <screen-name>cpthgb</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthgb.jsp</template>
+  </screen>	 
+  <!--成品退货-明细--> 
+  <screen>
+    <screen-name>cpthmx</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthmx.jsp</template>
+  </screen>	 
+  <!--成品退货-明细单耗--> 
+  <screen>
+    <screen-name>cpthmxdh</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthmxdh.jsp</template>
+  </screen>	 
+  <!--成品退货-归并单耗--> 
+  <screen>
+    <screen-name>cpthgbdh</screen-name>
+    <template>/jsp/module/jkyw/cpth/cpthgbdh.jsp</template>
+  </screen>
+  
+   <!--一般贸易-首页--> 
+  <screen>
+    <screen-name>tradehome</screen-name>
+    <template>/jsp/module/trade/trade/tradehome.jsp</template>
+  </screen>	 
+  <!--一般贸易-增加料件--> 
+  <screen>
+    <screen-name>tradeadd</screen-name>
+    <template>/jsp/module/trade/trade/tradeadd.jsp</template>
+  </screen>	 
+  <!--一般贸易-料件归并--> 
+  <screen>
+    <screen-name>tradegb</screen-name>
+    <template>/jsp/module/trade/trade/tradegb.jsp</template>
+  </screen>
+   
+  
+  
+  <!--**************************************************************************************************************-->	
+   <!--删除报关单--> 
+   <screen>
+    <screen-name>bgddelhome</screen-name>
+    <template>/jsp/module/bgddel/bgddelhome.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>bgddel</screen-name>
+    <template>/jsp/module/bgddel/bgddel.jsp</template>
+  </screen>
+
+  
+
+  <!--**************************************************************************************************************-->	
+  
+  <!--费用--> 
+  <screen>
+    <screen-name>fyhome</screen-name>
+    <template>/jsp/module/fygl/fygl.jsp</template>
+  </screen>
+  
+ <!--**************************************************************************************************************-->	
+  
+
+  
+  <!--**************************************************************************************************************-->	
+  <!--综合查询--> 
+  <!--报关代理评估-->
+  <screen>
+    <screen-name>appagenthome</screen-name>
+    <template>/jsp/module/query/appagent/appagenthome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>appagent</screen-name>
+    <template>/jsp/module/query/appagent/appagentdisplay.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>appagentprint</screen-name>
+    <template>/jsp/module/query/appagent/appagent_print.jsp</template>
+  </screen>
+      <!--报关员评估-->
+  <screen>
+    <screen-name>decnohome</screen-name>
+    <template>/jsp/module/query/decno/decnohome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>decno</screen-name>
+    <template>/jsp/module/query/decno/decnodisplay.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>decnoprint</screen-name>
+    <template>/jsp/module/query/decno/decno_print.jsp</template>
+  </screen>
+  
+  <screen>
+    <screen-name>jckywhome</screen-name>
+    <template>/jsp/module/query/jckyw/jckywhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>jckcx</screen-name>
+    <template>/jsp/module/query/jckyw/jckcx.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>jcktjcx</screen-name>
+    <template>/jsp/module/query/jckyw/jcktjcx.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>ckcount</screen-name>
+    <template>/jsp/module/query/jckyw/ckcount.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>kccxhome</screen-name>
+    <template>/jsp/module/query/kccx/kccxhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>kccx</screen-name>
+    <template>/jsp/module/query/kccx/kccx.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>qykchome</screen-name>
+    <template>/jsp/module/query/qykc/qykchome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>qykc</screen-name>
+    <template>/jsp/module/query/qykc/qykc.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>hgkchome</screen-name>
+    <template>/jsp/module/query/hgkc/hgkchome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>hgkc</screen-name>
+    <template>/jsp/module/query/hgkc/hgkc.jsp</template>
+  </screen>
+  <!--补税记录--> 
+  <screen>
+    <screen-name>bsjlhome</screen-name>
+    <template>/jsp/module/report/bsjl/home.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>bsjldo</screen-name>
+    <template>/jsp/module/report/bsjl/list.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>fpckhome</screen-name>
+    <template>/jsp/module/query/fpcx/fpcxhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>fpcx</screen-name>
+    <template>/jsp/module/query/fpcx/fpcx.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>bacx</screen-name>
+    <template>/jsp/module/query/bainfo/bacxhome.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>dispbacx</screen-name>
+    <template>/jsp/module/query/bainfo/dispbacx.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>jlhlywhome</screen-name>
+    <template>/jsp/module/query/jlhlyw/jlhlhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>jlhlcx</screen-name>
+    <template>/jsp/module/query/jlhlyw/jlhlcx.jsp</template>
+  </screen>
+   <screen>
+    <screen-name>reywhome</screen-name>
+    <template>/jsp/module/query/reyw/reywhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>reywcx</screen-name>
+    <template>/jsp/module/query/reyw/reywcx.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>hhcxhome</screen-name>
+    <template>/jsp/module/query/hhcx/hhcxhome.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>hhcx</screen-name>
+    <template>/jsp/module/query/hhcx/hhcx.jsp</template>
+  </screen>	 
+  
+  <!-- 2010-05-25 sunxiaofeng 增加货号查询显示明细数据功能 -->
+  <screen>
+    <screen-name>hhcxdetail</screen-name>
+    <template>/jsp/module/query/hhcx/hhcxdetail.jsp</template>
+  </screen> 
+<!--**************************************************************************************************************-->	
+  <!--接口数据--> 
+  <screen>
+  <screen-name>grqueryhome</screen-name>
+    <template>/jsp/module/iedata/grquery/grqueryhome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>grqueryinfodo</screen-name>
+    <template>/jsp/module/iedata/grquery/grqueryinfodo.jsp</template>
+  </screen>
+   <screen>
+  <screen-name>giinvoicedo</screen-name>
+    <template>/jsp/module/iedata/gi/giinvoice.jsp</template>
+  </screen>	
+   <screen>
+  <screen-name>giqueryhome</screen-name>
+    <template>/jsp/module/iedata/giquery/giqueryhome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>giqueryinfodo</screen-name>
+    <template>/jsp/module/iedata/giquery/giqueryinfodo.jsp</template>
+  </screen>
+  <screen>
+  <screen-name>gihome</screen-name>
+    <template>/jsp/module/iedata/gi/giinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>giinfodo</screen-name>
+    <template>/jsp/module/iedata/gi/giinfodo.jsp</template>
+  </screen>
+  <screen>
+  <screen-name>gdhome</screen-name>
+    <template>/jsp/module/iedata/gd/gdinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>gdinfodo</screen-name>
+    <template>/jsp/module/iedata/gd/gdinfodo.jsp</template>
+  </screen>  
+   <screen>
+    <screen-name>gddetaildo</screen-name>
+    <template>/jsp/module/iedata/gd/gddetail.jsp</template>
+  </screen>
+   <screen>
+  <screen-name>grhome</screen-name>
+    <template>/jsp/module/iedata/gr/grinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>grinfodo</screen-name>
+    <template>/jsp/module/iedata/gr/grinfodo.jsp</template>
+  </screen>
+  <screen>
+  <screen-name>grinvoicedo</screen-name>
+    <template>/jsp/module/iedata/gr/grinvoice.jsp</template>
+  </screen>	
+  <screen>
+  <screen-name>bskchome</screen-name>
+    <template>/jsp/module/iedata/bskc/bskcinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>bskcinfodo</screen-name>
+    <template>/jsp/module/iedata/bskc/bskcinfodo.jsp</template>
+  </screen>
+  <screen>
+  <screen-name>cprkhome</screen-name>
+    <template>/jsp/module/iedata/cprk/cprkinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cprkinfodo</screen-name>
+    <template>/jsp/module/iedata/cprk/cprkinfodo.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>wlinfohome</screen-name>
+    <template>/jsp/module/iedata/wlinfo/wlinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>wlinfodo</screen-name>
+    <template>/jsp/module/iedata/wlinfo/wlinfodo.jsp</template>
+  </screen>
+  <screen>	 
+  <screen-name>tlhome</screen-name>
+    <template>/jsp/module/iedata/tlinfo/tlinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>tlinfodo</screen-name>
+    <template>/jsp/module/iedata/tlinfo/tlinfodo.jsp</template>
+  </screen>	
+  <screen>	 
+  <screen-name>tlxxhome</screen-name>
+    <template>/jsp/module/iedata/tlxx/tlxxhome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>tlxxinfo</screen-name>
+    <template>/jsp/module/iedata/tlxx/tlxxinfo.jsp</template>
+  </screen>	  
+  <screen>
+    <screen-name>cpck_home</screen-name>
+    <template>/jsp/module/iedata/cpck/cpckhome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpckdo</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>cpck_invoice</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_invoice.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>cpck_invoice_print</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_invoice_print.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpck_invoice_edit</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_invoice_edit.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>cpck_packing_print</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_packing_print.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpck_invoice_editsave</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_reload.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>cpck_packing</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_packing.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>cpck_invoicegb</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_invoicegb.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>cpck_invoicegb_print</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_invoicegb_print.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpck_packinggb</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_packinggb.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>cpck_packinggb_print</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_packinggb_print.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpck_edit</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_edit.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>cpck_editsave</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_subreload.jsp</template>
+  </screen>	
+  <screen>
+    <screen-name>cpck_del</screen-name>
+    <template>/jsp/module/iedata/cpck/cpck_del.jsp</template>
+  </screen>	
+  
+  <!--风险分析-->
+   <!--企业课税记录-->
+  <screen>
+    <screen-name>qyksjlhome</screen-name>
+    <template>/jsp/module/fxfx/qyksjl/qyksjlinfohome.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>qyksjldo</screen-name>
+    <template>/jsp/module/fxfx/qyksjl/qyksjlinfo.jsp</template>
+  </screen>	 
+  <screen>
+    <screen-name>ksmxdo</screen-name>
+    <template>/jsp/module/fxfx/qyksjl/ksmx.jsp</template>
+  </screen> 
+   <!--选择查看BOM数据--> 
+  <screen>
+    <screen-name>selectbom</screen-name>
+    <template>/jsp/module/ebook/dzzc/cp/bomdata.jsp</template>
+  </screen> 
+  <!--选择接口数据--> 
+  <screen>
+    <screen-name>selectdata</screen-name>
+    <template>/jsp/module/exchgdata/selectdata.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>exchgdata</screen-name>
+    <template>/jsp/module/exchgdata/exchgdata.jsp</template>
+  </screen>	 
+  
+  <!--个人信息相关页面-->
+  <screen>
+    <screen-name>grxx</screen-name>
+    <template>/jsp/sys/user/personalinfo.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>editgrxx</screen-name>
+    <template>/jsp/sys/user/editpersonalinfo.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>chgpwd</screen-name>
+    <template>/jsp/sys/user/chgpwd.jsp</template>
+  </screen>
+  
+  <!--报关单打印-->
+  <screen>
+    <screen-name>bgdprint</screen-name>
+    <template>/jsp/module/print/bgd_print.jsp</template>
+  </screen>
+  
+   <!--查询结果导出EXCEL文件-->
+  <screen>
+    <screen-name>excel</screen-name>
+    <template>/jsp/module/query/excel.jsp</template>
+  </screen>
+  <!--综合查询打印-->
+  <screen>
+    <screen-name>queryprint</screen-name>
+    <template>/jsp/module/print/query_print.jsp</template>
+  </screen>
+   <screen>
+    <screen-name>jckqueryprint</screen-name>
+    <template>/jsp/module/print/jckquery_print.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>kccxprint</screen-name>
+    <template>/jsp/module/print/kccx_print.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>jlhlcxprint</screen-name>
+    <template>/jsp/module/print/jlhlcx_print.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>qyksjlquery</screen-name>
+    <template>/jsp/module/print/qyksjl_print.jsp</template>
+  </screen>
+  <screen>
+    <screen-name>hhcxprint</screen-name>
+    <template>/jsp/module/print/hhcx_print.jsp</template>
+  </screen>
+      <!-- 税率维护首页 -->
+  <screen>
+    <screen-name>ntaxhome</screen-name>
+    <template>/jsp/ywdata/ntax/ntaxhome.jsp</template>
+  </screen>
+        <!-- 税率编辑 -->
+  <screen>
+    <screen-name>editntax</screen-name>
+    <template>/jsp/ywdata/ntax/ntaxedit.jsp</template>
+  </screen>
+      <!-- 报关代理维护首页 -->
+  <screen>
+    <screen-name>bgdlhome</screen-name>
+    <template>/jsp/ywdata/bgdl/bgdlhome.jsp</template>
+  </screen>
+          <!-- 报关代理信息编辑 -->
+  <screen>
+    <screen-name>editbgdl</screen-name>
+    <template>/jsp/ywdata/bgdl/bgdledit.jsp</template>
+  </screen>
+        <!-- 运单信息维护首页 -->
+  <screen>
+    <screen-name>ydwhhome</screen-name>
+    <template>/jsp/ywdata/ydwh/ydwhhome.jsp</template>
+  </screen>
+          <!-- 运单信息编辑 -->
+  <screen>
+    <screen-name>editydwh</screen-name>
+    <template>/jsp/ywdata/ydwh/ydwhedit.jsp</template>
+  </screen>
+            <!-- 运单信息查询 -->
+  <screen>
+    <screen-name>ydwhfind</screen-name>
+    <template>/jsp/ywdata/ydwh/ydwhfind.jsp</template>
+  </screen>
+   <screen>
+    <screen-name>ydwhfindcx</screen-name>
+    <template>/jsp/ywdata/ydwh/ydwhfindcx.jsp</template>
+  </screen>
+          <!-- 许可证信息维护首页 -->
+  <screen>
+    <screen-name>licglhome</screen-name>
+    <template>/jsp/ywdata/licgl/licglhome.jsp</template>
+  </screen>
+            <!-- 许可证详细信息查询首页 -->
+  <screen>
+    <screen-name>licglfindmx</screen-name>
+    <template>/jsp/ywdata/licgl/licglfindmx.jsp</template>
+  </screen>
+            <!-- 许可证详细信息维护首页 -->
+  <screen>
+    <screen-name>licgladdmx</screen-name>
+    <template>/jsp/ywdata/licgl/licgladdmx.jsp</template>
+  </screen>
+              <!-- 许可证详细信息编辑首页 -->
+  <screen>
+    <screen-name>licgleditmx</screen-name>
+    <template>/jsp/ywdata/licgl/licgleditmx.jsp</template>
+  </screen>
+          <!-- 许可证详细信息 -->
+  <screen>
+    <screen-name>licglview</screen-name>
+    <template>/jsp/ywdata/licgl/licglview.jsp</template>
+  </screen>
+<!--==========================================================================================================--> 
+              <!-- 收货差异信息首页 -->
+	<screen>
+	<screen-name>shcyhome</screen-name>
+	<template>/jsp/ywdata/shcy/shcyhome.jsp</template>
+	</screen>
+	<screen>
+	<screen-name>shcymxhome</screen-name>
+	<template>/jsp/ywdata/shcy/shcymxhome.jsp</template>
+	</screen>	
+	<screen>
+
+	<screen-name>shcyacc</screen-name>
+	<template>/jsp/ywdata/shcy/shcyacc.jsp</template>
+	</screen>
+	  <!-- 收货差异信息编辑 -->
+	<screen>
+	<screen-name>editshcy</screen-name>
+	<template>/jsp/ywdata/shcy/editshcy.jsp</template>
+	</screen>
+	<screen>
+	<screen-name>editshcymx</screen-name>
+	<template>/jsp/ywdata/shcy/editshcymx.jsp</template>
+	</screen>
+
+
+<!--==========================================================================================================--> 
+
+
+        <!-- 货运代理维护首页 -->
+  <screen>
+    <screen-name>hydlhome</screen-name>
+    <template>/jsp/ywdata/hydl/hydlhome.jsp</template>
+  </screen>
+          <!-- 货运代理信息编辑 -->
+  <screen>
+    <screen-name>edithydl</screen-name>
+    <template>/jsp/ywdata/hydl/hydledit.jsp</template>
+  </screen>
+          <!-- 经营范围维护首页 -->
+  <screen>
+    <screen-name>jyfwhome</screen-name>
+    <template>/jsp/ywdata/jyfw/jyfwhome.jsp</template>
+  </screen>
+          <!-- 经营范围信息编辑 -->
+  <screen>
+    <screen-name>editjyfw</screen-name>
+    <template>/jsp/ywdata/jyfw/jyfwedit.jsp</template>
+  </screen>
+              <!-- 公告首页 -->
+  <screen>
+    <screen-name>noticeshow</screen-name>
+    <template>/jsp/sys/notice/noticeshow.jsp</template>
+  </screen>
+          <!-- 公告查看信息 -->
+  <screen>
+    <screen-name>noticeviewshow</screen-name>
+    <template>/jsp/sys/notice/noticeviewshow.jsp</template>
+  </screen>
+            <!-- 公告维护首页 -->
+  <screen>
+    <screen-name>noticehome</screen-name>
+    <template>/jsp/sys/notice/noticehome.jsp</template>
+  </screen>
+             <!-- 新建公告 -->
+  <screen>
+    <screen-name>noticeadd</screen-name>
+    <template>/jsp/sys/notice/noticeadd.jsp</template>
+  </screen>
+               <!-- 新建公告 -->
+  <screen>
+    <screen-name>noticeedit</screen-name>
+    <template>/jsp/sys/notice/noticeedit.jsp</template>
+  </screen>
+          <!-- 公告详细信息 -->
+  <screen>
+    <screen-name>noticeview</screen-name>
+    <template>/jsp/sys/notice/noticeview.jsp</template>
+  </screen>
+             <!-- 公告发布首页 -->
+  <screen>
+    <screen-name>noticereleasedhome</screen-name>
+    <template>/jsp/sys/notice/noticereleasedhome.jsp</template>
+  </screen>
+               <!-- 公告发布首页 -->
+  <screen>
+    <screen-name>noticehg</screen-name>
+    <template>/jsp/sys/notice/noticehg.jsp</template>
+  </screen>
+            <!-- 公告发布详细信息 -->
+  <screen>
+    <screen-name>noticereleasedview</screen-name>
+    <template>/jsp/sys/notice/noticereleasedview.jsp</template>
+  </screen>
+              <!-- PO信息维护首页 -->
+  <screen>
+    <screen-name>ie_powh</screen-name>
+    <template>/jsp/ywdata/ie_powh/ie_powhhome.jsp</template>
+  </screen>
+                  <!-- 进出口业务明细查询首页 -->
+  <screen>
+    <screen-name>jckywmx</screen-name>
+    <template>/jsp/module/query/jckywmx/jckywmxhome.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>jckywmxcx</screen-name>
+    <template>/jsp/module/query/jckywmx/jckywmxcx.jsp</template>
+  </screen>
+                      <!-- 财务查询首页 -->
+  <screen>
+    <screen-name>cwquery</screen-name>
+    <template>/jsp/module/query/cwquery/cwqueryhome.jsp</template>
+  </screen>
+ <screen>
+    <screen-name>cwquerycx</screen-name>
+    <template>/jsp/module/query/cwquery/cwquerycx.jsp</template>
+  </screen>
+                      <!-- 发货统计查询首页 -->
+  <screen>
+    <screen-name>fhtj</screen-name>
+    <template>/jsp/module/report/fhtj/fhtjhome.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>fhtjcx</screen-name>
+    <template>/jsp/module/report/fhtj/fhtjcx.jsp</template>
+  </screen>   
+                        <!-- 返单统计查询首页 -->
+  <screen>
+    <screen-name>fdtj</screen-name>
+    <template>/jsp/module/report/fdtj/fdtjhome.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>fdtjcx</screen-name>
+    <template>/jsp/module/report/fdtj/fdtjcx.jsp</template>
+  </screen>
+                            <!-- 正确申报查询首页 -->
+  <screen>
+    <screen-name>zqsb</screen-name>
+    <template>/jsp/module/report/zqsb/zqsbhome.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>zqsbcx</screen-name>
+    <template>/jsp/module/report/zqsb/zqsbcx.jsp</template>
+  </screen>
+          <!-- 帐册维护维护首页 -->
+  <screen>
+    <screen-name>zchwhhome</screen-name>
+    <template>/jsp/ywdata/zchwh/zchwhhome.jsp</template>
+  </screen>
+          <!-- 帐册维护信息编辑 -->
+  <screen>
+    <screen-name>editzchwh</screen-name>
+    <template>/jsp/ywdata/zchwh/zchwhedit.jsp</template>
+  </screen>
+          <!-- 报关员维护维护首页 -->
+  <screen>
+    <screen-name>bgywhhome</screen-name>
+    <template>/jsp/ywdata/bgywh/bgywhhome.jsp</template>
+  </screen>
+          <!-- 报关员维护信息编辑 -->
+  <screen>
+    <screen-name>editbgywh</screen-name>
+    <template>/jsp/ywdata/bgywh/bgywhedit.jsp</template>
+  </screen>
+  
+  <screen>
+  	<screen-name>getexginfo</screen-name>
+    <template>/jsp/getexginfo.jsp</template>
+  </screen>
+  
+<!--业务工单追踪查询--> 
+  <screen>
+    <screen-name>ywgdtrack</screen-name>
+    <template>/jsp/module/query/ywgdtrack/ywgdtrackhome.jsp</template>
+  </screen>
+     <screen>
+    <screen-name>ywgdtrackcx</screen-name>
+    <template>/jsp/module/query/ywgdtrack/ywgdtrackcx.jsp</template>
+  </screen> 
+  <screen>
+    <screen-name>ywgdtrackmx</screen-name>
+    <template>/jsp/module/query/ywgdtrack/ywgdtrackmx.jsp</template>
+  </screen> 
+   <!--替换料表查询--> 
+    <screen>
+  <screen-name>ljchangehome</screen-name>
+    <template>/jsp/module/query/ljchange/ljchangehome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>ljchangeinfodo</screen-name>
+    <template>/jsp/module/query/ljchange/ljchangeinfodo.jsp</template>
+  </screen>
+   <!--==========================================================================================================--> 
+  <!-- 异常工单信息维护首页 -->
+  <screen>
+    <screen-name>gdedithome</screen-name>
+    <template>/jsp/module/iedata/gdedit/gdedithome.jsp</template>
+  </screen>
+
+            <!-- 异常工单详细信息查询首页 -->
+  <screen>
+    <screen-name>gdeditfindmx</screen-name>
+    <template>/jsp/module/iedata/gdedit/gdeditfindmx.jsp</template>
+  </screen>
+  
+  <!--跟踪不足工单-->
+  <screen>
+    <screen-name>lackedgdlist</screen-name>
+    <template>/jsp/module/query/gdlack/gdlacked.jsp</template>
+  </screen>
+<!--==========================================================================================================--> 
+            <!-- 成品名称维护首页 -->
+  <screen>
+    <screen-name>cpnamehome</screen-name>
+    <template>/jsp/ywdata/cpname/cpnamehome.jsp</template>
+  </screen>
+          <!-- 成品名称信息编辑 -->
+  <screen>
+    <screen-name>editcpname</screen-name>
+    <template>/jsp/ywdata/cpname/cpnameedit.jsp</template>
+  </screen>
+    <!--原始PO查询-->
+    <screen>
+  <screen-name>orapohome</screen-name>
+    <template>/jsp/module/iedata/ora_po/orapohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>orapoinfodo</screen-name>
+    <template>/jsp/module/iedata/ora_po/orapoinfodo.jsp</template>
+  </screen>      
+  <!-- 货代统计查询首页 -->
+  <screen>
+    <screen-name>hdtj</screen-name>
+    <template>/jsp/module/report/hdtj/hdtjhome.jsp</template>
+  </screen>
+    <screen>
+    <screen-name>hdtjcx</screen-name>
+    <template>/jsp/module/report/hdtj/hdtjcx.jsp</template>
+  </screen>
+  
+    <!--PO综合信息-->
+    <screen>
+  <screen-name>poinfohome</screen-name>
+    <template>/jsp/module/iedata/poinfo/poinfohome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>poinfocx</screen-name>
+    <template>/jsp/module/iedata/poinfo/poinfocx.jsp</template>
+  </screen>      
+      <!--耗料未备案信息-->
+    <screen>
+  <screen-name>delbaljhome</screen-name>
+    <template>/jsp/module/iedata/delbalj/delbaljhome.jsp</template>
+  </screen>	
+   <screen>
+    <screen-name>delbaljcx</screen-name>
+    <template>/jsp/module/iedata/delbalj/delbaljcx.jsp</template>
+  </screen>     
+  
+   <!-- 2010-05-27 sunxiaofeng IE录入报关单数据与海关H2000数据比对    -->
+   <screen>
+    <screen-name>jkljcheckdatainput</screen-name>
+    <template>/jsp/module/jkyw/jklj/jkljcheckdatainput.jsp</template>
+  </screen> 
+</screen-definitions>

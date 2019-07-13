@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GB2312"?>
+<system-config>
+	<item description="系统路径" name="syspath" value="D:\Project\Paink"/>
+	<item description="是否包含手册" name="existsc" value="0"/>
+	<item description="e帐册还是h帐册" name="isezc" value="1"/>
+	<item description="系统名称" name="systemname" value="索爱保税管理系统"/>
+	<item description="系统名称" name="statusbar" value="北京派尼克电子技术有限责任公司 电话:010-64913099 网址: http://www.paink.com　E-mail: paink@paink.com "/>
+</system-config>

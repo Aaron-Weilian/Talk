@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE request-mappings [
+    <!ELEMENT request-mappings  (screen-definition+ , preprocess-handler-class? , exception-handler , url-mapping+ )>
+    <!ELEMENT screen-definition EMPTY>
+    <!ATTLIST screen-definition  url      CDATA  #REQUIRED
+                                 language CDATA  #REQUIRED >
+    <!ELEMENT webcontroller-class  (#PCDATA )>
+    <!ELEMENT preprocess-handler-class  (#PCDATA )>
+    <!ELEMENT exception-handler  (handler+ )>
+    <!ELEMENT handler EMPTY>
+    <!ATTLIST handler  type  (application | system)  #REQUIRED
+                       class CDATA  #REQUIRED >
+    <!ELEMENT url-mapping  (request-handler-class? , event-class? , flow-handler? , webcontroller-class?) >
+    <!ATTLIST url-mapping  screen               CDATA  #IMPLIED
+                           object               CDATA  #IMPLIED 
+                           url                  CDATA  #REQUIRED
+                           useFlowHandler        (false | true )  #IMPLIED
+                           useRequestHandler     (false | true )  #IMPLIED
+                           usePreProcessHandler  (false | true )  #IMPLIED >
+    <!ELEMENT request-handler-class  (#PCDATA )>
+    <!ELEMENT event-class  (#PCDATA )>
+    <!ELEMENT flow-handler  (handler-result+ )>
+    <!ATTLIST flow-handler  class CDATA  #REQUIRED >
+    <!ELEMENT handler-result EMPTY>
+    <!ATTLIST handler-result  result CDATA  #REQUIRED
+                              screen CDATA  #REQUIRED >
+]>
+
+<request-mappings>
+
+<screen-definition url="screendefinitions.xml" language="en_US" />
+
+  <preprocess-handler-class>com.paink.sys.controller.SysPreRequestHandler</preprocess-handler-class>
+
+  <exception-handler>
+    <handler type="application" class="com.aiyun.sys.controller.ApplicationExceptionHandler" />
+    <handler type="system" class="com.aiyun.sys.controller.SystemExceptionHandler" />
+  </exception-handler>
+
+  <!--default-->    
+  <url-mapping url="/default" screen="default" />
+
+  <!--应用错误，例如数据错误-->    
+  <url-mapping url="/applicationException" screen="ApplicationException" />
+  
+  <!--系统级别的错误，非预期的错误--> 
+  <url-mapping url="/systemException" screen="SystemException" />
+    
+  <!--**************************************************************************************************************-->
+  <!--测试页面--> 
+  <url-mapping url="/test" usePreProcessHandler="true" useRequestHandler="true" useFlowHandler="false" screen="test" >
+    <request-handler-class>com.aiyun.module.testRequestHandler</request-handler-class>
+  </url-mapping>
+
+</request-mappings>
