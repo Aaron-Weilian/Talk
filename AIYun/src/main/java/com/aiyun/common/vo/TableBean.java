@@ -1,23 +1,18 @@
-/*
- * �������� 2004-9-22
- *
- * �����������ļ�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 package com.aiyun.common.vo;
 
-/**
- * @author Liun
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
+import java.util.Map;
+
 public class TableBean {
 
 	private CommonBean dataBean = null;
 	private String[] sName = null;
 	private String[] chName = null;
 	private String[] colWidth = null;
+	
+	private String tableClass;
+	private Map<String,String> rowClass ;
+	private Map<String,String> colClass ;
+	
 	public TableBean() {
 	}
 
@@ -67,5 +62,31 @@ public class TableBean {
 	public void setSName(String[] strings) {
 		sName = strings;
 	}
+
+	public String getTableClass() {
+		return tableClass;
+	}
+
+	public void setTableClass(String tableClass) {
+		this.tableClass = tableClass;
+	}
+
+	public Map<String, String> getRowClass() {
+		return rowClass;
+	}
+
+	public void setRowClass(Map<String, String> rowClass) {
+		this.rowClass = rowClass;
+	}
+
+	public Map<String, String> getColClass() {
+		return colClass;
+	}
+
+	public void setColClass(Map<String, String> colClass) {
+		this.colClass = colClass;
+	}
+	
+	
 
 }

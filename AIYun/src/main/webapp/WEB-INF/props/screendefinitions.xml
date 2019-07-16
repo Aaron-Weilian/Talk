@@ -50,7 +50,7 @@
   <!--测试页面-->
   <screen>
     <screen-name>test</screen-name>
-    <template>/jsp/test.jsp</template>
+    <template>/jsp/test/test.jsp</template>
   </screen>	
 
 </screen-definitions>

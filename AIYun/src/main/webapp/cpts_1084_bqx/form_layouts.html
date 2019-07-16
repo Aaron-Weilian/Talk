@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/text.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fonts/ptsans/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/mws.style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/icons/icons.css" media="screen" />
+
+<!-- Demo and Plugin Stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/jimgareaselect/css/imgareaselect-default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/fullcalendar/fullcalendar.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="plugins/tipsy/tipsy.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/sourcerer/Sourcerer-1.2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/jgrowl/jquery.jgrowl.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/spinner/spinner.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/jui/jquery.ui.css" media="screen" />
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/mws.theme.css" media="screen" />
+
+<!-- JavaScript Plugins -->
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="plugins/jimgareaselect/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.dualListBox-1.3.min.js"></script>
+<script type="text/javascript" src="plugins/jgrowl/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="plugins/jquery.filestyle.js"></script>
+<script type="text/javascript" src="plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.dataTables.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="plugins/flot/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="plugins/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.pie.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.stack.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="plugins/colorpicker/colorpicker.js"></script>
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy.js"></script>
+<script type="text/javascript" src="plugins/sourcerer/Sourcerer-1.2.js"></script>
+<script type="text/javascript" src="plugins/jquery.placeholder.js"></script>
+<script type="text/javascript" src="plugins/jquery.validate.js"></script>
+<script type="text/javascript" src="plugins/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="plugins/spinner/ui.spinner.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="js/mws.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+<script type="text/javascript" src="js/themer.js"></script>
+
+<title>MWS Admin - Form Layouts</title>
+
+</head>
+
+<body>
+
+	<div id="aiyun-themer">
+    	<div id="aiyun-themer-hide"></div>
+        <div id="aiyun-themer-content">
+        	<div class="aiyun-themer-section">
+	        	<label for="aiyun-theme-presets">Presets</label> <select id="aiyun-theme-presets"></select>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+                <ul>
+                    <li><span>Base Color</span> <div id="aiyun-base-cp" class="aiyun-cp-trigger"></div></li>
+                    <li><span>Text Color</span> <div id="aiyun-text-cp" class="aiyun-cp-trigger"></div></li>
+                    <li><span>Text Glow Color</span> <div id="aiyun-textglow-cp" class="aiyun-cp-trigger"></div></li>
+                </ul>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+            	<ul>
+                    <li><span>Text Glow Opacity</span> <div id="aiyun-textglow-op"></div></li>
+                </ul>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+	            <button class="aiyun-button red small" id="aiyun-themer-getcss">Get CSS</button>
+            </div>
+        </div>
+        <div id="aiyun-themer-css-dialog">
+        	<div class="aiyun-form">
+            	<div class="aiyun-form-row" style="padding:0;">
+		        	<div class="aiyun-form-item">
+                    	<textarea cols="auto" rows="auto" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<div id="aiyun-header" class="clearfix">
+    	<div id="aiyun-logo-container">
+        	<div id="aiyun-logo-wrap">
+            	<img src="images/aiyun-logo.png" alt="mws admin" />
+			</div>
+        </div>
+        
+        <div id="aiyun-user-tools" class="clearfix">
+        	<div id="aiyun-user-notif" class="aiyun-dropdown-menu">
+            	<a href="#" class="aiyun-i-24 i-alert-2 aiyun-dropdown-trigger">Notifications</a>
+                <span class="aiyun-dropdown-notif">35</span>
+                <div class="aiyun-dropdown-box">
+                	<div class="aiyun-dropdown-content">
+                        <ul class="aiyun-notifications">
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="aiyun-dropdown-viewall">
+	                        <a href="#">View All Notifications</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aiyun-user-message" class="aiyun-dropdown-menu">
+            	<a href="#" class="aiyun-i-24 i-message aiyun-dropdown-trigger">Messages</a>
+                <span class="aiyun-dropdown-notif">35</span>
+                <div class="aiyun-dropdown-box">
+                	<div class="aiyun-dropdown-content">
+                        <ul class="aiyun-messages">
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="aiyun-dropdown-viewall">
+	                        <a href="#">View All Messages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aiyun-user-info" class="aiyun-inset">
+            	<div id="aiyun-user-photo">
+                	<img src="example/profile.jpg" alt="User Photo" />
+                </div>
+                <div id="aiyun-user-functions">
+                    <div id="aiyun-username">
+                        Hello, John Doe
+                    </div>
+                    <ul>
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="index-2.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="aiyun-wrapper">
+		<div id="aiyun-sidebar-stitch"></div>
+		<div id="aiyun-sidebar-bg"></div>
+        <div id="aiyun-sidebar">
+        	<div id="aiyun-searchbox" class="aiyun-inset">
+            	<form action="http://www.malijuwebshop.com/themes/aiyun-admin/form_layouts.html">
+                	<input type="text" class="aiyun-search-input" />
+                    <input type="submit" class="aiyun-search-submit" />
+                </form>
+            </div>
+            <div id="aiyun-navigation">
+            	<ul>
+                	<li><a href="dashboard.html" class="aiyun-i-24 i-home">Dashboard</a></li>
+                	<li><a href="charts.html" class="aiyun-i-24 i-chart">Charts</a></li>
+                	<li><a href="calendar.html" class="aiyun-i-24 i-day-calendar">Calendar</a></li>
+                	<li><a href="files.html" class="aiyun-i-24 i-file-cabinet">File Manager</a></li>
+                	<li><a href="table.html" class="aiyun-i-24 i-table-1">Table</a></li>
+                	<li class="active">
+                    	<a href="#" class="aiyun-i-24 i-list">Forms</a>
+                        <ul>
+                        	<li><a href="form_layouts.html">Layouts</a></li>
+                        	<li><a href="form_elements.html">Elements</a></li>
+                        </ul>
+                    </li>
+                	<li><a href="widgets.html" class="aiyun-i-24 i-cog">Widgets</a></li>
+                	<li><a href="typography.html" class="aiyun-i-24 i-text-styling">Typography</a></li>
+                	<li><a href="grids.html" class="aiyun-i-24 i-blocks-images">Grids &amp; Panels</a></li>
+                	<li><a href="gallery.html" class="aiyun-i-24 i-polaroids">Gallery</a></li>
+                	<li><a href="error.html" class="aiyun-i-24 i-alert-2">Error Page</a></li>
+                	<li>
+                    	<a href="icons.html" class="aiyun-i-24 i-pacman">
+                        	Icons <span class="aiyun-nav-tooltip">2000+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="aiyun-container" class="clearfix">
+            <div class="container">
+            
+            	<div class="aiyun-report-container clearfix">
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-building"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Floors Climbed</span>
+                            <span class="aiyun-report-value">324</span>
+                        </span>
+                    </a>
+
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-sport"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Calories Burned</span>
+                            <span class="aiyun-report-value down">74%</span>
+                        </span>
+                    </a>
+
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-walk"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Kilometers Walked</span>
+                            <span class="aiyun-report-value">14</span>
+                        </span>
+                    </a>
+                    
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-bug"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Bugs Fixed</span>
+                            <span class="aiyun-report-value up">22%</span>
+                        </span>
+                    </a>
+                    
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-car"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Cars Repaired</span>
+                            <span class="aiyun-report-value">77</span>
+                        </span>
+                    </a>
+                </div>
+                
+            	<div class="aiyun-panel grid_8">
+                	<div class="aiyun-panel-header">
+                    	<span class="aiyun-i-24 i-list">Inline Form</span>
+                    </div>
+                    <div class="aiyun-panel-body">
+                    	<form class="aiyun-form" action="http://www.malijuwebshop.com/themes/aiyun-admin/form_layouts.html">
+                    		<div class="aiyun-form-inline">
+                    			<div class="aiyun-form-row">
+                    				<label>Small text field</label>
+                    				<div class="aiyun-form-item small">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Medium text field</label>
+                    				<div class="aiyun-form-item medium">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Large text field</label>
+                    				<div class="aiyun-form-item large">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Textarea</label>
+                    				<div class="aiyun-form-item large">
+                    					<textarea rows="100%" cols="100%"></textarea>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Dropdown List</label>
+                    				<div class="aiyun-form-item small">
+                    					<select>
+                    						<option>Option 1</option>
+                    						<option>Option 3</option>
+                    						<option>Option 4</option>
+                    						<option>Option 5</option>
+                    					</select>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Checkboxes</label>
+                    				<div class="aiyun-form-item clearfix">
+                    					<ul class="aiyun-form-list inline">
+                    						<li><input type="checkbox" /> <label>Checkbox 1</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 2</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 3</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 4</label></li>
+                    					</ul>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Radio Buttons</label>
+                    				<div class="aiyun-form-item clearfix">
+                    					<ul class="aiyun-form-list inline">
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    					</ul>
+                    				</div>
+                    			</div>
+                    		</div>
+                    		<div class="aiyun-button-row">
+                    			<input type="submit" value="Submit" class="aiyun-button green" />
+                    			<input type="submit" value="Submit" class="aiyun-button red" />
+                    			<input type="submit" value="Submit" class="aiyun-button blue" />
+                    			<input type="submit" value="Submit" class="aiyun-button orange" />
+                    			<input type="submit" value="Submit" class="aiyun-button gray" />
+                    			<input type="submit" value="Submit" class="aiyun-button black" />
+                    			<input type="submit" value="Disabled" class="aiyun-button gray" disabled="disabled" />
+                    		</div>
+                    	</form>
+                    </div>    	
+                </div>
+                
+            	<div class="aiyun-panel grid_8">
+                	<div class="aiyun-panel-header">
+                    	<span class="aiyun-i-24 i-list">Block Form</span>
+                    </div>
+                    <div class="aiyun-panel-body">
+                    	<form class="aiyun-form" action="http://www.malijuwebshop.com/themes/aiyun-admin/form_layouts.html">
+                    		<div class="aiyun-form-block">
+                    			<div class="aiyun-form-row">
+                    				<label>Small text field</label>
+                    				<div class="aiyun-form-item small">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Medium text field</label>
+                    				<div class="aiyun-form-item medium">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Large text field</label>
+                    				<div class="aiyun-form-item large">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Textarea</label>
+                    				<div class="aiyun-form-item large">
+                    					<textarea rows="100%" cols="100%"></textarea>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Dropdown List</label>
+                    				<div class="aiyun-form-item small">
+                    					<select>
+                    						<option>Option 1</option>
+                    						<option>Option 3</option>
+                    						<option>Option 4</option>
+                    						<option>Option 5</option>
+                    					</select>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Checkboxes</label>
+                    				<div class="aiyun-form-item clearfix">
+                    					<ul class="aiyun-form-list">
+                    						<li><input type="checkbox" /> <label>Checkbox 1</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 2</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 3</label></li>
+                    						<li><input type="checkbox" /> <label>Checkbox 4</label></li>
+                    					</ul>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Radio Buttons</label>
+                    				<div class="aiyun-form-item clearfix">
+                    					<ul class="aiyun-form-list">
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    						<li><input type="radio" /> <label>Radio 1</label></li>
+                    					</ul>
+                    				</div>
+                    			</div>
+                    		</div>
+                    		<div class="aiyun-button-row">
+                    			<input type="submit" value="Submit" class="aiyun-button green" />
+                    			<input type="submit" value="Submit" class="aiyun-button red" />
+                    			<input type="submit" value="Submit" class="aiyun-button blue" />
+                    			<input type="submit" value="Submit" class="aiyun-button orange" />
+                    			<input type="submit" value="Submit" class="aiyun-button gray" />
+                    			<input type="submit" value="Submit" class="aiyun-button black" />
+                    			<input type="submit" value="Disabled" class="aiyun-button gray" disabled="disabled" />
+                    		</div>
+                    	</form>
+                    </div>
+                </div>
+                
+            	<div class="aiyun-panel grid_8">
+                	<div class="aiyun-panel-header">
+                    	<span class="aiyun-i-24 i-sign-post">Form with Wizard Navigation</span>
+                    </div>
+                    <div class="aiyun-panel-body">
+                        <div class="aiyun-wizard clearfix">
+                            <ul>
+                                <li>
+                                    <a class="aiyun-ic-16 ic-accept" href="#">Past Steps</a>
+                                </li>
+                                <li class="current">
+                                    <a href="#" class="aiyun-ic-16 ic-delivery">Current Step</a>
+                                </li>
+                                <li>
+                                    <a class="aiyun-ic-16 ic-user" href="#">Next Steps</a>
+                                </li>
+                                <li>
+                                    <a class="aiyun-ic-16 ic-direction" href="#">Next Steps</a>
+                                </li>
+                            </ul>
+                        </div>
+                    	<form class="aiyun-form" action="http://www.malijuwebshop.com/themes/aiyun-admin/form_layouts.html">
+                    		<div class="aiyun-form-inline">
+                    			<div class="aiyun-form-row">
+                    				<label>Title</label>
+                    				<div class="aiyun-form-item large">
+                    					<input type="text" class="aiyun-textinput" />
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Article</label>
+                    				<div class="aiyun-form-item large">
+                    					<textarea rows="100%" cols="100%"></textarea>
+                    				</div>
+                    			</div>
+                    			<div class="aiyun-form-row">
+                    				<label>Category</label>
+                    				<div class="aiyun-form-item large">
+                    					<select>
+                    						<option>Option 1</option>
+                    						<option>Option 3</option>
+                    						<option>Option 4</option>
+                    						<option>Option 5</option>
+                    					</select>
+                    				</div>
+                    			</div>
+                    		</div>
+                    		<div class="aiyun-button-row">
+                    			<input type="submit" value="Prev" class="aiyun-button gray left" />
+                    			<input type="submit" value="Next" class="aiyun-button green" />
+                    		</div>
+                    	</form>
+                    </div>
+                </div>
+                
+            	<div class="aiyun-panel grid_8">
+                	<div class="aiyun-panel-header">
+                    	<span class="aiyun-i-24 i-speech-bubble-2">Form Messages</span>
+                    </div>
+                    <div class="aiyun-panel-body">
+                    	<form class="aiyun-form" action="http://www.malijuwebshop.com/themes/aiyun-admin/form_layouts.html">
+                        	<div class="aiyun-form-message error">
+                            	This is an error message
+                                <ul>
+                                	<li>You are too fast</li>
+                                    <li>You are too slow</li>
+                                </ul>
+                            </div>
+                        	<div class="aiyun-form-message success">
+                            	This is a success message
+                                <ol>
+                                	<li>You are too good</li>
+                                    <li>You are too smart</li>
+                                </ol>
+                            </div>
+                        	<div class="aiyun-form-message info">
+                            	This is an info message
+                            </div>
+                        	<div class="aiyun-form-message warning">
+                            	This is a warning message
+                            </div>
+                            
+                    		<div class="aiyun-form-block">
+                    			<div class="aiyun-form-row">
+                    				<label>Text field Error</label>
+                    				<div class="aiyun-form-item large">
+                    					<input type="text" class="aiyun-textinput error" />
+                                        <div class="aiyun-error">
+                                        	This field is required
+                                        </div>
+                    				</div>
+                    			</div>
+                                
+                    			<div class="aiyun-form-row">
+                    				<label>Select Error</label>
+                    				<div class="aiyun-form-item large">
+                    					<select class="error">
+                    						<option>Option 1</option>
+                    						<option>Option 3</option>
+                    						<option>Option 4</option>
+                    						<option>Option 5</option>
+                    					</select>
+                    				</div>
+                    			</div>
+                                
+                    			<div class="aiyun-form-row">
+                    				<label>Textarea Error</label>
+                    				<div class="aiyun-form-item large">
+                    					<textarea rows="100%" cols="100%" class="error"></textarea>
+                    				</div>
+                    			</div>
+                    		</div>
+                    		<div class="aiyun-button-row">
+                    			<input type="submit" value="Submit" class="aiyun-button green" />
+                    			<input type="submit" value="Submit" class="aiyun-button red" />
+                    			<input type="submit" value="Submit" class="aiyun-button blue" />
+                    			<input type="submit" value="Submit" class="aiyun-button orange" />
+                    			<input type="submit" value="Submit" class="aiyun-button gray" />
+                    			<input type="submit" value="Submit" class="aiyun-button black" />
+                    			<input type="submit" value="Disabled" class="aiyun-button gray" disabled="disabled" />
+                    		</div>
+                    	</form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="aiyun-footer">
+            	Copyright &copy; 2014.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+</html>

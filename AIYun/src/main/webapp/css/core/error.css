@@ -1,0 +1,25 @@
+div#aiyun-error-container
+{
+	width:640px;
+	margin:auto;
+	padding-top:32px;
+	background:url(../../images/core/aiyun-error-bg.png) no-repeat center top;
+}
+
+div#aiyun-error-container h1#aiyun-error-code
+{
+	color:#f0f0f0;
+	font-size:40px;
+	text-align:center;
+	margin-bottom:64px;
+}
+
+div#aiyun-error-container h1#aiyun-error-code span
+{
+	font-size:72px;
+}
+
+div#aiyun-error-container p
+{
+	text-align:center;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>template</shortname>
+	<tag>
+		<name>TableTag</name>
+		<tagclass>com.aiyun.common.taglib.TableTag</tagclass>
+		<bodycontent>jsp</bodycontent>
+		<attribute><name>tb</name><required>true</required><rtexprvalue>true</rtexprvalue></attribute>
+		<attribute><name>width</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
+		<attribute><name>height</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
+		<attribute><name>parax</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
+		<attribute><name>num</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
+	</tag>
+</taglib>
+
+
+

@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/text.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fonts/ptsans/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/mws.style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/icons/icons.css" media="screen" />
+
+<!-- Demo and Plugin Stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/jimgareaselect/css/imgareaselect-default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/fullcalendar/fullcalendar.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="plugins/tipsy/tipsy.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/sourcerer/Sourcerer-1.2.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/jgrowl/jquery.jgrowl.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="plugins/spinner/spinner.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/jui/jquery.ui.css" media="screen" />
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/mws.theme.css" media="screen" />
+
+<!-- JavaScript Plugins -->
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="plugins/jimgareaselect/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.dualListBox-1.3.min.js"></script>
+<script type="text/javascript" src="plugins/jgrowl/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="plugins/jquery.filestyle.js"></script>
+<script type="text/javascript" src="plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.dataTables.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="plugins/flot/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="plugins/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.pie.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.stack.min.js"></script>
+<script type="text/javascript" src="plugins/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="plugins/colorpicker/colorpicker.js"></script>
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy.js"></script>
+<script type="text/javascript" src="plugins/sourcerer/Sourcerer-1.2.js"></script>
+<script type="text/javascript" src="plugins/jquery.placeholder.js"></script>
+<script type="text/javascript" src="plugins/jquery.validate.js"></script>
+<script type="text/javascript" src="plugins/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="plugins/spinner/ui.spinner.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="js/mws.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+<script type="text/javascript" src="js/themer.js"></script>
+
+<title>MWS Admin - Gallery</title>
+
+</head>
+
+<body>
+
+	<div id="aiyun-themer">
+    	<div id="aiyun-themer-hide"></div>
+        <div id="aiyun-themer-content">
+        	<div class="aiyun-themer-section">
+	        	<label for="aiyun-theme-presets">Presets</label> <select id="aiyun-theme-presets"></select>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+                <ul>
+                    <li><span>Base Color</span> <div id="aiyun-base-cp" class="aiyun-cp-trigger"></div></li>
+                    <li><span>Text Color</span> <div id="aiyun-text-cp" class="aiyun-cp-trigger"></div></li>
+                    <li><span>Text Glow Color</span> <div id="aiyun-textglow-cp" class="aiyun-cp-trigger"></div></li>
+                </ul>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+            	<ul>
+                    <li><span>Text Glow Opacity</span> <div id="aiyun-textglow-op"></div></li>
+                </ul>
+            </div>
+            <div class="aiyun-themer-separator"></div>
+            <div class="aiyun-themer-section">
+	            <button class="aiyun-button red small" id="aiyun-themer-getcss">Get CSS</button>
+            </div>
+        </div>
+        <div id="aiyun-themer-css-dialog">
+        	<div class="aiyun-form">
+            	<div class="aiyun-form-row" style="padding:0;">
+		        	<div class="aiyun-form-item">
+                    	<textarea cols="auto" rows="auto" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div id="aiyun-header" class="clearfix">
+    	<div id="aiyun-logo-container">
+        	<div id="aiyun-logo-wrap">
+            	<img src="images/aiyun-logo.png" alt="mws admin" />
+			</div>
+        </div>
+        
+        <div id="aiyun-user-tools" class="clearfix">
+        	<div id="aiyun-user-notif" class="aiyun-dropdown-menu">
+            	<a href="#" class="aiyun-i-24 i-alert-2 aiyun-dropdown-trigger">Notifications</a>
+                <span class="aiyun-dropdown-notif">35</span>
+                <div class="aiyun-dropdown-box">
+                	<div class="aiyun-dropdown-content">
+                        <ul class="aiyun-notifications">
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="aiyun-dropdown-viewall">
+	                        <a href="#">View All Notifications</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aiyun-user-message" class="aiyun-dropdown-menu">
+            	<a href="#" class="aiyun-i-24 i-message aiyun-dropdown-trigger">Messages</a>
+                <span class="aiyun-dropdown-notif">35</span>
+                <div class="aiyun-dropdown-box">
+                	<div class="aiyun-dropdown-content">
+                        <ul class="aiyun-messages">
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="read">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        	<li class="unread">
+                            	<a href="#">
+                                    <span class="sender">John Doe</span>
+                                    <span class="message">
+                                        Lorem ipsum dolor sit amet
+                                    </span>
+                                    <span class="time">
+                                        January 21, 2012
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="aiyun-dropdown-viewall">
+	                        <a href="#">View All Messages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aiyun-user-info" class="aiyun-inset">
+            	<div id="aiyun-user-photo">
+                	<img src="example/profile.jpg" alt="User Photo" />
+                </div>
+                <div id="aiyun-user-functions">
+                    <div id="aiyun-username">
+                        Hello, John Doe
+                    </div>
+                    <ul>
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="index-2.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="aiyun-wrapper">
+		<div id="aiyun-sidebar-stitch"></div>
+		<div id="aiyun-sidebar-bg"></div>
+        <div id="aiyun-sidebar">
+        	<div id="aiyun-searchbox" class="aiyun-inset">
+            	<form action="http://www.malijuwebshop.com/themes/aiyun-admin/gallery.html">
+                	<input type="text" class="aiyun-search-input" />
+                    <input type="submit" class="aiyun-search-submit" />
+                </form>
+            </div>
+            <div id="aiyun-navigation">
+            	<ul>
+                	<li><a href="dashboard.html" class="aiyun-i-24 i-home">Dashboard</a></li>
+                	<li><a href="charts.html" class="aiyun-i-24 i-chart">Charts</a></li>
+                	<li><a href="calendar.html" class="aiyun-i-24 i-day-calendar">Calendar</a></li>
+                	<li><a href="files.html" class="aiyun-i-24 i-file-cabinet">File Manager</a></li>
+                	<li><a href="table.html" class="aiyun-i-24 i-table-1">Table</a></li>
+                	<li>
+                    	<a href="#" class="aiyun-i-24 i-list">Forms</a>
+                        <ul>
+                        	<li><a href="form_layouts.html">Layouts</a></li>
+                        	<li><a href="form_elements.html">Elements</a></li>
+                        </ul>
+                    </li>
+                	<li><a href="widgets.html" class="aiyun-i-24 i-cog">Widgets</a></li>
+                	<li><a href="typography.html" class="aiyun-i-24 i-text-styling">Typography</a></li>
+                	<li><a href="grids.html" class="aiyun-i-24 i-blocks-images">Grids &amp; Panels</a></li>
+                	<li class="active"><a href="gallery.html" class="aiyun-i-24 i-polaroids">Gallery</a></li>
+                	<li><a href="error.html" class="aiyun-i-24 i-alert-2">Error Page</a></li>
+                	<li>
+                    	<a href="icons.html" class="aiyun-i-24 i-pacman">
+                        	Icons <span class="aiyun-nav-tooltip">2000+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="aiyun-container" class="clearfix">
+            <div class="container">
+            
+            	<div class="aiyun-report-container clearfix">
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-building"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Floors Climbed</span>
+                            <span class="aiyun-report-value">324</span>
+                        </span>
+                    </a>
+
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-sport"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Calories Burned</span>
+                            <span class="aiyun-report-value down">74%</span>
+                        </span>
+                    </a>
+
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-walk"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Kilometers Walked</span>
+                            <span class="aiyun-report-value">14</span>
+                        </span>
+                    </a>
+                    
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-bug"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Bugs Fixed</span>
+                            <span class="aiyun-report-value up">22%</span>
+                        </span>
+                    </a>
+                    
+                	<a class="aiyun-report" href="#">
+                    	<span class="aiyun-report-icon aiyun-ic ic-car"></span>
+                        <span class="aiyun-report-content">
+                        	<span class="aiyun-report-title">Cars Repaired</span>
+                            <span class="aiyun-report-value">77</span>
+                        </span>
+                    </a>
+                </div>
+                
+            	<div class="aiyun-panel grid_8">
+                	<div class="aiyun-panel-header">
+                    	<span class="aiyun-i-24 i-polaroids">Image Gallery</span>
+                    </div>
+                    <div class="aiyun-panel-body">
+                    	<div class="aiyun-panel-content">
+                    		<ul id="aiyun-gallery" class="clearfix">
+                    			<li>
+                    				<img src="example/cyan_hawk.jpg" alt="" />
+                    				<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                    			</li>
+                    			<li>
+                    				<img src="example/cyan_kangaroo.jpg" alt="" />
+									<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                    			</li>
+                    			<li><img src="example/cyan_koala.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/cyan_kookaburra.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/cyan_wallaby.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_buffalo.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_cat.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_fish.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_underwater3.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_horse.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_meercats.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_penguin.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_squirrel.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_underwater2.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_underwater4.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>
+                    			<li><img src="example/scottwills_underwater5.jpg" alt="" />
+                                	<div class="aiyun-gallery-overlay">
+                    					<div class="aiyun-gallery-zoom"></div>
+                    				</div>
+                                </li>                    			
+                    		</ul>
+                            
+                            <div class="aiyun-pagination clearfix">
+                            	<ul>
+                                	<li><a href="#" class="aiyun-paging-button disabled">First</a></li>
+                                	<li><a href="#" class="aiyun-paging-button disabled">Prev</a></li>
+                                	<li><a href="#" class="aiyun-paging-button current">1</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">2</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">3</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">4</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">5</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">Next</a></li>
+                                	<li><a href="#" class="aiyun-paging-button">Last</a></li>
+                                </ul>
+                            </div>
+                    	</div>
+                    </div>
+				</div>
+            </div>
+            
+            <div id="aiyun-footer">
+            	Copyright &copy; 2014.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+</html>

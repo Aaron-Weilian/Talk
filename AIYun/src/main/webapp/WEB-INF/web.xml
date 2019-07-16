@@ -4,37 +4,17 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 	<display-name>aiyun</display-name>
-	<context-param>
+	<!-- <context-param>
 		<param-name>appl.props.path</param-name>
-		<param-value>F:\App\SCM\AIYun\src\main\webapp\WEB-INF\props</param-value>
-	</context-param>
+		<param-value>classpath</param-value>
+	</context-param> -->
 	<context-param>
 		<param-name>appl.props.type</param-name>
-		<param-value>LOCAL_RESOURCE</param-value>
+		<param-value>WEB_RESOURCE</param-value>
 	</context-param>
 	<servlet>
 		<servlet-name>BaseServlet</servlet-name>
 		<servlet-class>com.aiyun.common.control.web.BaseServlet</servlet-class>
-		<init-param>
-			<param-name>http.proxySet</param-name>
-			<param-value>true</param-value>
-		</init-param>
-		<init-param>
-			<param-name>http.proxyHost</param-name>
-			<param-value>proxy.cnbj.sonyericsson.net</param-value>
-		</init-param>
-		<init-param>
-			<param-name>http.proxyPort</param-name>
-			<param-value>8080</param-value>
-		</init-param>
-		<init-param>
-			<param-name>http.proxyUser</param-name>
-			<param-value>28447782</param-value>
-		</init-param>
-		<init-param>
-			<param-name>http.proxyPassword</param-name>
-			<param-value>Painkbeijing123</param-value>
-		</init-param>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 	<servlet-mapping>

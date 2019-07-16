@@ -1,0 +1,77 @@
+div#aiyun-login
+{
+	background:url(../../images/core/aiyun-dark-bg.png);
+	width:288px;
+	height:218px;
+	margin:auto;
+	position:relative;
+	padding:12px 16px;
+	
+	position:relative;
+	top:50%;
+	margin-top:-122px;
+	border-top:2px solid #535353;
+	
+	/* CSS 3 */
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+}
+
+div#aiyun-login h1
+{
+	color:#ffffff;
+	padding:0 8px 8px 8px;
+	font-size:18px;
+	margin:0;
+	position:relative;
+	background:url(../../images/core/aiyun-login-stitch.png) repeat-x left bottom;
+}
+
+div#aiyun-login .aiyun-login-lock
+{
+	background:url(../../images/core/aiyun-login-circle.png) no-repeat center center;
+	position:absolute;
+	padding:8px;
+	right:-10px;
+	top:-10px;
+}
+
+div#aiyun-login form
+{
+	background:url(../../images/core/aiyun-login-stitch.png) repeat-x left bottom;
+}
+
+div#aiyun-login .aiyun-form-row
+{
+	padding-left:0;
+	padding-right:0;
+}
+
+div#aiyun-login input.aiyun-login-username
+{
+	background-image:url(../icons/16/user.png);
+	background-repeat:no-repeat;
+	background-position:8px center;
+}
+
+div#aiyun-login input.aiyun-login-password
+{
+	background-image:url(../icons/16/key.png);
+	background-repeat:no-repeat;
+	background-position:8px center;
+}
+
+div#aiyun-login input.aiyun-login-username, 
+div#aiyun-login input.aiyun-login-password
+{
+	padding:8px 8px 8px 32px;
+	border:1px solid #323232;
+}
+
+div#aiyun-login input.aiyun-login-button
+{
+	width:100%;
+}
