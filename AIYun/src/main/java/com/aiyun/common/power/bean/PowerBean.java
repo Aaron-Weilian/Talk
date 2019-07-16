@@ -1,11 +1,11 @@
 package com.aiyun.common.power.bean;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
 
-public class PowerBean extends BusinessObject {
+public class PowerBean extends DBUtil {
 
 	public CommonBean getUserPower(String userid) {
 		try {

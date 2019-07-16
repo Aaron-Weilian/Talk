@@ -2,20 +2,20 @@ package com.aiyun.sys.org.bean;
 
 import java.sql.SQLException;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.bo.IBusnessObject;
 import com.aiyun.common.cache.CacheManager;
-import com.aiyun.common.tool.Function;
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.power.PowerSrv;
+import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.util.Oid;
 import com.aiyun.common.vo.CommonBean;
 
 /**
  */
-public class OrgBean extends BusinessObject implements IBusnessObject {
+public class OrgBean extends DBUtil	implements IBusnessObject {
 
 	public static final String OBJECT_NAME = "users";
 

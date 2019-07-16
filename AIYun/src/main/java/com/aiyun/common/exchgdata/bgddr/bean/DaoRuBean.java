@@ -8,7 +8,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.XMLWriter;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
@@ -18,7 +18,7 @@ import com.aiyun.common.vo.CommonBean;
  * @author Administrator
  *
  */
-public class DaoRuBean extends BusinessObject {
+public class DaoRuBean extends DBUtil {
 
 	private static String pubDir = "e:/data/bgdfiles/";
 

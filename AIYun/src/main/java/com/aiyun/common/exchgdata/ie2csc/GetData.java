@@ -15,12 +15,12 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.tool.StrTool;
 import com.aiyun.common.vo.CommonBean;
 
-public class GetData extends BusinessObject {
+public class GetData extends DBUtil {
 	private static String MAIN_DIR = "/app/paink/data/IE";
 	//private static String MAIN_DIR = "c:/data/ocl";
 	private static HashMap hmUnit = null;

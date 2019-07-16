@@ -1,11 +1,11 @@
 package com.aiyun.module.sale.bean;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
 
-public class SaleBean extends BusinessObject {
+public class SaleBean extends DBUtil {
 	public CommonBean getHomeYWList(CommonBean cbUser, CommonBean cbCond) {
 		try {
 			String sql = "SELECT rownum,YWLIST.ID,to_char(YWLIST.SPDATE,'yyyy-mm-dd') AS spdate,to_char(YWLIST.SBDATE,'yyyy-mm-dd') AS sbdate, BGD_ZC_MX.MXDNO, CL_STATUS.F_START||CL_STATUS.sName||CL_STATUS.F_END AS STATUSNAME, CL_YWTYPE.sName AS TYPEIDNAME, CL_YWTYPE.YWLINK || YWLIST.ID AS YWLINK "

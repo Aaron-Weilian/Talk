@@ -1,6 +1,6 @@
 package com.aiyun.sys.user.bean;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
@@ -8,7 +8,7 @@ import com.aiyun.common.vo.CommonBean;
 
 /**
  */
-public class PersonalInfoBean extends BusinessObject {
+public class PersonalInfoBean extends DBUtil {
 	public boolean saveUser(CommonBean cbUser) {
 		try {
 			cbUser.setBeanName("USERS");

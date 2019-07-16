@@ -347,7 +347,7 @@ public class CommonBean implements java.io.Serializable {
 	public String[] printData() {
 
 		if (vecData == null || colNames == null) {
-			Log.info(this, "����������ڣ�");
+			Log.info(this, "data is null");
 			return null;
 		}
 		String strData[] = null;
@@ -365,6 +365,9 @@ public class CommonBean implements java.io.Serializable {
 					for (int k = str.length(); k <= 15; k++)
 						str += " ";
 				Log.info(this, str + "[" + i + "]" + " = " + getCellStr(i, j));
+				
+				System.out.println( str + "[" + i + "]" + " = " + getCellStr(i, j));
+				
 				vecPintData.addElement(str + "[" + i + "]" + " = " + getCellStr(i, j));
 			}
 			Log.info(this, "===========================================\n");

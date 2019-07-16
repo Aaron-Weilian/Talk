@@ -2,27 +2,48 @@ package com.aiyun.sys.user.bean;
 
 import java.sql.SQLException;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.bo.IBusnessObject;
 import com.aiyun.common.cache.CacheManager;
-import com.aiyun.common.tool.Function;
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.power.PowerSrv;
+import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.util.Oid;
 import com.aiyun.common.vo.CommonBean;
 
 /**
  */
-public class UserBean extends BusinessObject implements IBusnessObject {
+public class UserBean extends DBUtil implements IBusnessObject {
 
 	public static final String OBJECT_NAME = "users";
 
+	public CommonBean getPermission() {
+		StringBuffer bsSQL = new StringBuffer();
+		bsSQL.append("SELECT M.ID AS M_ID,M.NAME AS M_SNAME,URL AS B_POS \n");
+		bsSQL.append("FROM U_PERMISSION M \n");
+		String strSQL = bsSQL.toString();
+		
+		try {
+			DataBaseObject dbo = getDataBaseObject();
+			CommonBean op = dbo.getData(strSQL);
+			return op;
+		} catch (Exception e) {
+			Log.error(this, "get user CB object fail," + e.getMessage());
+			getErrMsgBean().addCommonMessage("get user CB object fail," + e.getMessage());
+			e.printStackTrace();
+			return null;
+		} finally {
+			rollback();
+		}
+	}
+	
+	
 	public CommonBean getOperationPower(CommonBean cbUser, String userid) {
 		StringBuffer bsSQL = new StringBuffer();
-		bsSQL.append("SELECT M.ID AS M_ID,M.SNAME AS M_SNAME,DECODE(AM.MODULEID,NULL,'0','','0','1') AS M_VALUE,M.POS AS M_POS,B.ID AS B_ID,B.SNAME AS B_SNAME,DECODE(AB.BUSNODEID,NULL,'0','','0','1') AS B_VALUE,B.POS AS B_POS \n");
-		bsSQL.append("FROM SYS_MODULE M \n");
+		bsSQL.append("SELECT M.ID AS M_ID,M.NAME AS M_SNAME,URL AS B_POS \n");
+		bsSQL.append("FROM U_PERMISSION M \n");
 		bsSQL.append("LEFT JOIN SYS_BUSNODE B ON B.MODULEID=M.ID AND B.LAUTH=1 \n");
 		bsSQL.append("LEFT JOIN (SELECT DISTINCT BUSNODEID FROM USER_AUTH WHERE USERID='"+userid+"') AB ON AB.BUSNODEID=B.ID \n");
 		bsSQL.append("LEFT JOIN (SELECT DISTINCT MODULEID FROM USER_AUTH WHERE USERID='"+userid+"') AM ON AM.MODULEID=M.ID \n");
@@ -203,5 +224,12 @@ public class UserBean extends BusinessObject implements IBusnessObject {
 		finally {
 			rollback();
 		}
+	}
+	
+	public static void main (String[] args) {
+		UserBean ub = new UserBean();
+		CommonBean cb = ub.getPermission();
+		cb.printData();
+		
 	}
 }

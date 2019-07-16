@@ -1,27 +1,17 @@
-/*
- * �����������ļ�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 package com.aiyun.common.exchgdata.csc2ie.bean;
 
-
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
 
-/**
- * @author Administrator
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
-public class UploadBean extends BusinessObject {
+public class UploadBean extends DBUtil {
 	//����·��
 	//private static String pubDir = "c:/data/bmc";
 	private static String pubDir = "/app/paink/data/BMC";

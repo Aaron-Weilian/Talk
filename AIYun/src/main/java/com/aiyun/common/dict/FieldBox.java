@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Vector;
 
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.vo.ColumnBean;
 import com.aiyun.common.vo.CommonBean;
@@ -12,7 +13,7 @@ import com.aiyun.common.vo.CommonBean;
 /**
  * 
  */
-public class FieldBox extends com.aiyun.common.bo.BusinessObject {
+public class FieldBox extends DBUtil {
 	static HashMap hsTableObject = null;
 	String sTable = null;
 	

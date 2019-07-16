@@ -1,9 +1,3 @@
-/*
- * �������� 2004-8-24
- *
- * �����������ļ�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 package com.aiyun.common.bo;
 
 import java.sql.Connection;
@@ -18,12 +12,6 @@ import com.aiyun.common.util.Log;
 import com.aiyun.common.util.StrTool;
 import com.aiyun.common.vo.CommonBean;
 
-/**
- * @author Liun
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 public class DataBaseObject {
 
 	private ResultSet rs;
@@ -31,9 +19,6 @@ public class DataBaseObject {
 	private Statement stmt;
 	public Connection con;
 
-	/**
-	 * DataBaseObject ������ע�⡣
-	 */
 	public DataBaseObject(Connection con) {
 		this.con = con;
 	}
@@ -55,11 +40,6 @@ public class DataBaseObject {
 		}
 	}
 
-	/**
-	 * �˴����뷽��˵����
-	 * �������ڣ�(2001-3-16 12:56:49)
-	 * @param sql java.lang.String
-	 */
 	protected void executeQuery(String strSql) throws SQLException {
 
 		Log.info(this, "\n\n\n" + strSql + "\n");
@@ -71,7 +51,7 @@ public class DataBaseObject {
 			rs = stmt.executeQuery(strSql);
 			rsmd = rs.getMetaData();
 		} catch (SQLException e) {
-			Log.error(this, "��ѯ����" + e.getMessage());
+			Log.error(this, "sql exec failure, " + e.getMessage());
 			throw e;
 		}
 	}
@@ -101,27 +81,21 @@ public class DataBaseObject {
 			cb.setColNames(sHead);
 			cb.setVecData(vRet);
 			long ie = System.currentTimeMillis();
-			Log.info(this, "\n\n =================��ѯ���, �������� " + (ie - ib) + " ���� ================================================");
+			Log.info(this, "\n\n =================sql execution time: " + (ie - ib) + " ms================================================");
 			return cb;
 		} catch (SQLException e) {
-			Log.error(this, "��ѯ��������" + e.getMessage());
+			Log.error(this, "sql exec failure," + e.getMessage());
 			throw e;
 		} finally {
 			closeRS();
 		}
 	}
 
-	/**
-	 * �˴����뷽��˵����
-	 * �������ڣ�(2001-3-16 12:56:49)
-	 * @param sql java.lang.String
-	 */
 	public boolean execute(String[] sql) throws SQLException {
 
 		if (sql == null) {
 			throw new SQLException("sql is null");
 		}
-
 		try {
 			stmt = con.createStatement();
 
@@ -147,16 +121,16 @@ public class DataBaseObject {
 
 	public boolean execute(CommonBean cb) throws SQLException {
 		if (cb == null) {
-			throw new SQLException("cbΪ�գ�");
+			throw new SQLException("cb object is null");
 		}
 		String[] sqls = new String[cb.getRowNum()];
 		String table = cb.getBeanName();
 		String oper = cb.getAttribute();
 		if (table == null || table.equals("")) {
-			throw new SQLException("û��ָ��������");
+			throw new SQLException("table info is null");
 		}
 		if (oper == null || oper.equals("")) {
-			throw new SQLException("û��ָ��������insert,update or delete����");
+			throw new SQLException("Please set action, insert,update or delete");
 		}
 
 		for (int i = 0; i < cb.getRowNum(); i++) {

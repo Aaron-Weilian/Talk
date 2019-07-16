@@ -14,19 +14,13 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.XMLWriter;
 
-import com.aiyun.common.bo.BusinessObject;
+import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.tool.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
 
-/**
- * @author Administrator
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
-public class XmlBean extends BusinessObject {
+public class XmlBean extends DBUtil {
 	//����·��
 	//private static String pubDir = "e:/data/ie";
 	private static String pubDir = "/data/ie";
