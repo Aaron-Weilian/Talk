@@ -30,7 +30,7 @@
 
 <screen-definition url="screendefinitions.xml" language="en_US" />
 
-  <preprocess-handler-class>com.paink.sys.controller.SysPreRequestHandler</preprocess-handler-class>
+  <preprocess-handler-class>com.aiyun.sys.controller.SysPreRequestHandler</preprocess-handler-class>
 
   <exception-handler>
     <handler type="application" class="com.aiyun.sys.controller.ApplicationExceptionHandler" />
@@ -48,7 +48,7 @@
     
   <!--**************************************************************************************************************-->
   <!--测试页面--> 
-  <url-mapping url="/test" usePreProcessHandler="true" useRequestHandler="true" useFlowHandler="false" screen="test" >
+  <url-mapping url="/test" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" screen="test" >
     <request-handler-class>com.aiyun.module.testRequestHandler</request-handler-class>
   </url-mapping>
 

@@ -81,22 +81,22 @@ public class ScreenFlowManager implements Serializable {
 		}
 	}
 
-	public String getTemplate(Locale locale, String s) {
+	public String getTemplate(Locale locale, String screenStr) {
 		HashMap hashmap = getScreens(locale);
 		if (hashmap == null)
 			return null;
-		String s1 = null;
-		Screen screen = (Screen)hashmap.get(s);
+		String screenTemplate = null;
+		Screen screen = (Screen)hashmap.get(screenStr);
 		if (screen != null)
-			s1 = screen.getTemplate();
+			screenTemplate = screen.getTemplate();
 		else
-			throw new CommonException(String.valueOf(String.valueOf((new StringBuffer("no such screen(")).append(s).append(")"))));
-		if (s1 == null || s1.length() == 0) {
-			Screen screen1 = (Screen)hashmap.get("default");
+			throw new CommonException(String.valueOf(String.valueOf((new StringBuffer("no such screen(")).append(screenStr).append(")"))));
+		if (screenTemplate == null || screenTemplate.length() == 0) {
+			Screen defaultScreen = (Screen)hashmap.get("default");
 			Log.info(this, "use default screen");
-			s1 = screen1.getTemplate();
+			screenTemplate = defaultScreen.getTemplate();
 		}
-		return s1;
+		return screenTemplate;
 	}
 
 	public String getTemplateFile(Locale locale) {

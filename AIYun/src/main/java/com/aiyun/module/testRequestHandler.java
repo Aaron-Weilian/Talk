@@ -17,7 +17,7 @@ public class testRequestHandler extends RequestHandlerSupport {
 
 		CommonBean testBean = new CommonBean();
 		
-		testBean.addColumn("test", "test");
+		testBean.addValue("test", "test");
 		
 		request.setAttribute("ok", testBean);
 

@@ -65,22 +65,22 @@ public class BaseServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) {
 
-		String s = request.getPathInfo();
-		if (s == null) {
-			s = "";
+		String pathInfo = request.getPathInfo();
+		if (pathInfo == null) {
+			pathInfo = "";
 		}
-		if (s.indexOf(".") != -1) {
+		if (pathInfo.indexOf(".") != -1) {
 			try {
-				request.getRequestDispatcher(s).forward(request, response);
+				request.getRequestDispatcher(pathInfo).forward(request, response);
 			} catch (ServletException e) {
-				Log.error(this, "the page" + s + "can not loading");
-				throw new CommonException("the page" + s + "can not loading");
+				Log.error(this, "the page" + pathInfo + "can not loading");
+				throw new CommonException("the page" + pathInfo + "can not loading");
 			} catch (IOException e) {
-				Log.error(this, "the page" + s + "forward fail");
-				throw new CommonException("the page" + s + "forward fail");
+				Log.error(this, "the page" + pathInfo + "forward fail");
+				throw new CommonException("the page" + pathInfo + "forward fail");
 			}
 		}
-		request.setAttribute("pathInfo", s);
+		request.setAttribute("pathInfo", pathInfo);
 		ServletContext servletContext = getServletContext();
 
 		try {
@@ -104,7 +104,7 @@ public class BaseServlet extends HttpServlet {
 				Log.error(this, "handling exception");
 				request.setAttribute("exception", exception);
 				ScreenFlowManager screenFlowManager = getScreenFlowManager();
-				URLMapping urlmapping = screenFlowManager.getURLMapping(s);
+				URLMapping urlmapping = screenFlowManager.getURLMapping(pathInfo);
 				String exceptionHandler;
 				String exceptionURL;
 				if (exception instanceof SystemException) {
@@ -149,16 +149,16 @@ public class BaseServlet extends HttpServlet {
 		Locale locale = (Locale)httpservletrequest.getSession().getAttribute("language");
 		if (locale == null)
 			locale = Locale.US;
-		String s = (String)httpservletrequest.getAttribute("currentScreen");
-		String s1 = screenflowmanager.getTemplate(locale, s);
-		Log.info(this, "currentScreenName=".concat(String.valueOf(String.valueOf(s))));
-		Log.info(this, "forwardUrl=".concat(String.valueOf(String.valueOf(s1))));
-		if (s1 == null || s1.equals(""))
+		String currentScreen = (String)httpservletrequest.getAttribute("currentScreen");
+		String ScreenTemplate = screenflowmanager.getTemplate(locale, currentScreen);
+		Log.info(this, "currentScreenName=".concat(String.valueOf(String.valueOf(currentScreen))));
+		Log.info(this, "forwardUrl=".concat(String.valueOf(String.valueOf(ScreenTemplate))));
+		if (ScreenTemplate == null || ScreenTemplate.equals(""))
 			throw new CommonException("there is no forwardUrl");
-		RequestDispatcher requestdispatcher = getServletConfig().getServletContext().getRequestDispatcher(s1);
+		RequestDispatcher requestdispatcher = getServletConfig().getServletContext().getRequestDispatcher(ScreenTemplate);
 		if (requestdispatcher == null) {
 			throw new CommonException(
-				String.valueOf(String.valueOf((new StringBuffer("there is no request dispatcher for [")).append(s1).append("]"))));
+				String.valueOf(String.valueOf((new StringBuffer("there is no request dispatcher for [")).append(ScreenTemplate).append("]"))));
 		} else {
 			requestdispatcher.forward(httpservletrequest, httpservletresponse);
 			return;
