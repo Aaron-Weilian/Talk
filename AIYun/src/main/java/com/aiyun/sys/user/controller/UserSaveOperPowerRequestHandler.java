@@ -10,17 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.control.web.RequestHandlerSupport;
-import com.aiyun.common.tool.StrTool;
 import com.aiyun.common.vo.CommonBean;
 //import com.aiyun.sys.czrz.bean.CzrzBean;
 import com.aiyun.sys.user.bean.UserBean;
 
-/**
- * @author Liun
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 public class UserSaveOperPowerRequestHandler extends RequestHandlerSupport {
 
 	public void processRequest(HttpServletRequest request) throws CommonException {

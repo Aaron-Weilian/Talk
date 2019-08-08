@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import="com.aiyun.common.vo.CommonBean"%>
-<%@ page import="com.aiyun.common.vo.TableBean"%>
-<%@ page import="com.aiyun.common.tool.Function"%>
 <%@ taglib prefix="aiyun" uri="/WEB-INF/common.tld"%>
 <%@ include file="/jsp/common/headerRef.jsp"%>
 
@@ -12,10 +9,7 @@
 </head>
 <body>
 
-    <div id="aiyun-wrapper">
-        <div id="aiyun-sidebar-stitch" style="cursor:pointer" ></div>
-        <div id="aiyun-sidebar-bg" ></div>
-        <div id="aiyun-sidebar" >
+        <!-- Search Box -->
             <div id="aiyun-searchbox" class="aiyun-inset">
                 <form action="http://www.malijuwebshop.com/themes/aiyun-admin/table.html">
                     <input type="text" class="aiyun-search-input" />
@@ -23,6 +17,7 @@
                 </form>
             </div>
             
+            <!-- Main Navigation -->
             <div id="aiyun-navigation" >
                 <ul>
                     <li><a href="dashboard.html" class="aiyun-i-24 i-home">Dashboard</a></li>
@@ -49,9 +44,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        </div>
-
+            <!-- End Navigation -->
 
 </body>
 </html>

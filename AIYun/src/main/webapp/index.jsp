@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<h1>Login</h1>
         <div class="aiyun-login-lock"><img src="<%=basePath%>/css/icons/24/locked-2.png" alt="" /></div>
     	<div id="aiyun-login-form">
-        	<form class="aiyun-form" action="<%=basePath%>/jsp/common/frame.jsp" method="post">
+        	<form class="aiyun-form" action="<%=basePath%>/Prod/test" method="post">
                 <div class="aiyun-form-row">
                 	<div class="aiyun-form-item large">
                     	<input type="text" class="aiyun-login-username aiyun-textinput" placeholder="username" />

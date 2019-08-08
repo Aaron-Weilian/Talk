@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 
 import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.tool.Function;
+import com.aiyun.common.util.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.util.Oid;
 import com.aiyun.common.vo.CommonBean;

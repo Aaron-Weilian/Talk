@@ -4,24 +4,11 @@ import java.math.BigDecimal;
 
 import com.aiyun.common.vo.CommonBean;
 
-/**
- * �ַ�ת����
- * �������ڣ�(2001-5-16 12:55:38)
- * @author��wangxp
- */
 public class StrTool {
-	/**
-	 * StrTool ������ע�⡣
-	 */
 	public StrTool() {
 		super();
 	}
 
-	/**
-	 * �ж��Ƿ�������  �磺232
-	 * �������ڣ�(2001-7-30 15:04:18)
-	 * @return boolean
-	 */
 	public static boolean isInteger(String str) {
 		try {
 			Integer.parseInt(str);
@@ -31,11 +18,7 @@ public class StrTool {
 		}
 
 	}
-	/**
-	 * �ж��Ƿ�������  �磺232.55
-	 * �������ڣ�(2001-7-30 15:04:18)
-	 * @return boolean
-	 */
+	
 	public static boolean isNumeric(String str) {
 		if (str == null)
 			return false;
@@ -57,9 +40,6 @@ public class StrTool {
 		return true;
 	}
 
-	/**
-	 *
-	 */
 	public static String[] parseStr(String str, String chars) {
 		if (str == null || chars == null)
 			return null;
@@ -67,9 +47,7 @@ public class StrTool {
 		return null;
 
 	}
-	/**
-	 * �滻�ַ���
-	 */
+
 	public static String replaceStr(String str, String oldStr, String newStr) {
 		if (str == null
 			|| newStr == null
@@ -89,9 +67,6 @@ public class StrTool {
 		return temp;
 	}
 	
-	/**
-	 * С��λ���ĵ�����
-	 */
 	public static String setScale(String str, int scale) {
 
 		if (str == null || str.trim().length() == 0)
@@ -112,9 +87,6 @@ public class StrTool {
 
 	}
 	
-	/**
-	 * �ִ��������͵�ת����
-	 */
 	public static float str2float(String str) {
 		if (str == null)
 			return 0;
@@ -126,9 +98,7 @@ public class StrTool {
 			return 0;
 		}
 	}
-	/**
-	 * �ִ�����������ת����
-	 */
+
 	public static int str2int(String str) {
 		if (str == null)
 			return 0;

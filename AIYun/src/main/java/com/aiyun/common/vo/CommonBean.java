@@ -154,7 +154,7 @@ public class CommonBean implements java.io.Serializable {
 			}
 			return;
 
-		} else { //����
+		} else { 
 
 			if (colNames == null)
 				colNames = new String[0];

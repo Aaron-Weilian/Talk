@@ -1,11 +1,10 @@
-package com.aiyun.common.tool;
+package com.aiyun.common.util;
 
 import java.security.MessageDigest;
 import java.util.StringTokenizer;
 
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.control.web.RequestParameter;
-import com.aiyun.common.util.StrTool;
 import com.aiyun.common.vo.CommonBean;
 
 /**
@@ -82,7 +81,6 @@ public class Function {
 		return dataBean;
 	}
 
-	//��null��Ϊ��bean
 	public static CommonBean trimBean(Object dataBean) {
 		if (dataBean == null)
 			return new CommonBean();

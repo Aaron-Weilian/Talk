@@ -1,9 +1,3 @@
-/*
- * �������� 2004-9-17
- *
- * �����������ļ�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 package com.aiyun.common.power;
 
 import java.util.HashMap;
@@ -13,12 +7,6 @@ import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.power.bean.PowerBean;
 import com.aiyun.common.vo.CommonBean;
 
-/**
- * @author Liun
- *
- * ��������������ע�͵�ģ��Ϊ
- * ���� > ��ѡ�� > Java > �������� > �����ע��
- */
 public class PowerSrv {
 
 	private static PowerSrv instance = new PowerSrv();

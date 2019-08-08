@@ -7,7 +7,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import com.aiyun.common.tool.Function;
+import com.aiyun.common.util.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
 import com.aiyun.common.vo.TableBean;

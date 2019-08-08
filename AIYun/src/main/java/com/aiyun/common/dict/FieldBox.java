@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import com.aiyun.common.bo.DBUtil;
 import com.aiyun.common.bo.DataBaseObject;
+import com.aiyun.common.util.StrTool;
 import com.aiyun.common.vo.ColumnBean;
 import com.aiyun.common.vo.CommonBean;
 
@@ -211,7 +212,7 @@ public class FieldBox extends DBUtil {
 		DataBaseObject dbo = getDataBaseObject();
 		String sql = "SELECT ID, sName FROM FieldEnum WHERE FieldKey='"+key+"' ORDER BY sName";
 		CommonBean cbList = dbo.getData(sql);
-		String[][] arrList = com.aiyun.common.tool.Function.bean2arr(cbList);
+		String[][] arrList = com.aiyun.common.util.Function.bean2arr(cbList);
 		cbData.setColListValue(fieldas, arrList);
 	}
 	
@@ -230,7 +231,7 @@ public class FieldBox extends DBUtil {
 			sql = table;
 		}
 		CommonBean cbList = dbo.getData(sql);
-		String[][] arrList = com.aiyun.common.tool.Function.bean2arr(cbList);
+		String[][] arrList = com.aiyun.common.util.Function.bean2arr(cbList);
 		cbData.setColListValue(fieldas, arrList);
 	}
 	
@@ -271,7 +272,7 @@ public class FieldBox extends DBUtil {
 					}
 					else {
 						//��鳤��
-						int length=com.aiyun.common.tool.StrTool.str2int(columnbean.getLength());
+						int length=StrTool.str2int(columnbean.getLength());
 						if (columnbean.getFull()!=null && columnbean.getFull().equals("1")) {
 							if (colvalue.getBytes().length!=length) {
 								columnbean.setErrMsg(columnbean.getTitle() + "���ȱ�����" + length);
@@ -291,24 +292,24 @@ public class FieldBox extends DBUtil {
 				
 				//��ֵ��(����\������)
 				else if (columnbean.getDataType().equalsIgnoreCase("DECIMAL")) {
-					if (!com.aiyun.common.tool.StrTool.isNumeric(colvalue)) {
+					if (!StrTool.isNumeric(colvalue)) {
 						columnbean.setErrMsg(columnbean.getTitle() + "��ֵ���Ϸ�");
 						bValid = false;
 					}
 					else {
-						if (com.aiyun.common.tool.StrTool.str2int(columnbean.getDeciLength())==0) {	//����
+						if (StrTool.str2int(columnbean.getDeciLength())==0) {	//����
 							if (colvalue.indexOf(".")!=-1){
 								columnbean.setErrMsg(columnbean.getTitle() + "Ϊ����,��ֵ���Ϸ�");
 								bValid = false;
 							}
 							else {
-								if (com.aiyun.common.tool.StrTool.str2int(colvalue)==0 && columnbean.getAllowNull().equals("0")) {
+								if (StrTool.str2int(colvalue)==0 && columnbean.getAllowNull().equals("0")) {
 									columnbean.setErrMsg(columnbean.getTitle() + "������Ϊ�ջ���");
 									bValid = false;
 									continue;
 								}
 								//��鳤��
-								int length=com.aiyun.common.tool.StrTool.str2int(columnbean.getLength());
+								int length=StrTool.str2int(columnbean.getLength());
 								if (colvalue.length()>length) {
 									columnbean.setErrMsg(columnbean.getTitle() + "���ȳ�����Χ");
 									bValid = false;
@@ -316,7 +317,7 @@ public class FieldBox extends DBUtil {
 							}
 						}
 						else {	//������
-							if (com.aiyun.common.tool.StrTool.str2float(colvalue)==0) {
+							if (StrTool.str2float(colvalue)==0) {
 								if (columnbean.getAllowNull().equals("0")) {
 									columnbean.setErrMsg(columnbean.getTitle() + "������Ϊ�ջ���");
 									bValid = false;
@@ -330,7 +331,7 @@ public class FieldBox extends DBUtil {
 									tl = colvalue.length()-1;	//�ܳ���
 									td = colvalue.substring(colvalue.indexOf(".")+1).length();	//С��λ��
 								}
-								if (tl>com.aiyun.common.tool.StrTool.str2int(columnbean.getLength()) || td>com.aiyun.common.tool.StrTool.str2int(columnbean.getDeciLength())) {
+								if (tl>StrTool.str2int(columnbean.getLength()) || td>StrTool.str2int(columnbean.getDeciLength())) {
 									columnbean.setErrMsg(columnbean.getTitle() + "��ֵ���Ȼ�С��λ��������Χ");
 									bValid = false;
 								}
@@ -348,7 +349,7 @@ public class FieldBox extends DBUtil {
 					}
 					else {
 						//��鴫��������Ƿ�Ϊ�Ϸ�������ֵ
-						if (!com.aiyun.common.tool.DateTool.isDate(colvalue)) {
+						if (!com.aiyun.common.util.DateTool.isDate(colvalue)) {
 							columnbean.setErrMsg(columnbean.getTitle() + "��ֵ���Ϸ�");
 							bValid = false;
 						}

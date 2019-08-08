@@ -19,7 +19,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>BaseServlet</servlet-name>
-		<url-pattern>/BaseServlet/*</url-pattern>
+		<url-pattern>/Prod/*</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

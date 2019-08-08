@@ -1,11 +1,8 @@
-package com.aiyun.common.tool;
+package com.aiyun.common.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * ���ڲ����Ĺ�������
- */
 public class DateTool {
 
 	public static String getDate() {
@@ -13,9 +10,6 @@ public class DateTool {
 		String date = dateFormat.format(new Date());
 		return date;
 	}
-	/**
-	 * �Ƿ��ǺϷ�������
-	 */
 	public static boolean isDate(String strDate) {
 		try {
 			String sdate = "";
@@ -62,8 +56,8 @@ public class DateTool {
 			String sD = "";
 			sD = sdate.substring(index1 + 1);
 
-			int iM = com.aiyun.common.tool.StrTool.str2int(sM);
-			int iD = com.aiyun.common.tool.StrTool.str2int(sD);
+			int iM = StrTool.str2int(sM);
+			int iD = StrTool.str2int(sD);
 
 			if (iM > 12 || iM <= 0 || iD <= 0)
 				return false;
@@ -92,7 +86,7 @@ public class DateTool {
 	public static boolean isLeapYear(String sDate) {
 		try {
 			String s = java.sql.Date.valueOf(sDate).toString();
-			int iYear = com.aiyun.common.tool.StrTool.str2int(s.substring(0, 4));
+			int iYear = StrTool.str2int(s.substring(0, 4));
 
 			if (iYear % 4 == 0) {
 				if (iYear % 100 == 0 && iYear % 400 != 0) {

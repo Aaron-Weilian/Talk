@@ -8,7 +8,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import com.aiyun.common.bo.ErrorMessageBean;
-import com.aiyun.common.tool.Function;
+import com.aiyun.common.util.Function;
 import com.aiyun.common.util.Log;
 
 public class ErrMsgTag extends BodyTagSupport {

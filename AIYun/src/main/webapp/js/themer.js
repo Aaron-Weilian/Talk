@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var baseColor = "#c5d52b";
 	var textColor = "#c5d52b";
 	var textGlowColor = {r: 197, g: 213, b: 42, a: 0.5};
-	
+	defaultSeting();
 	var presets = {
 		Default: {
 			name: "Default", 
@@ -129,20 +129,7 @@ $(document).ready(function() {
 	});
 	
 	$("#aiyun-sidebar-stitch").bind("click", function(event) {
-		if ($("#aiyun-sidebar-bg").css("display")!="none") {
-			
-			$("#aiyun-sidebar-bg").css("display","none");
-			$("#aiyun-sidebar").css("display","none");
-			$("#aiyun-sidebar-stitch").css("left","-11px");
-			$("#aiyun-container").css("margin-left","0px");
-		}
-		else {
-			$("#aiyun-sidebar-bg").css("display","block");
-			$("#aiyun-sidebar").css("display","block");
-			$("#aiyun-sidebar-stitch").css("left","189px");
-			$("#aiyun-container").css("margin-left","206px");
-		}
-
+		stitchSidebar();
 	  });
 	
 	$("div#aiyun-themer #aiyun-textglow-op").slider({
@@ -211,6 +198,29 @@ $(document).ready(function() {
 			updateTextGlowColor(rgb, textGlowColor["a"]);
 		}
 	});
+	
+	
+	function defaultSeting(){
+		$("#aiyun-sidebar-bg").css("display","block");
+		$("#aiyun-sidebar").css("display","block");
+		$("#aiyun-sidebar-stitch").css("left","189px");
+		$("#aiyun-container").css("margin-left","206px");
+	}
+	
+	function stitchSidebar(){
+		if ($("#aiyun-sidebar-bg").css("display")!="none") {
+			$("#aiyun-sidebar-bg").css("display","none");
+			$("#aiyun-sidebar").css("display","none");
+			$("#aiyun-sidebar-stitch").css("left","-11px");
+			$("#aiyun-container").css("margin-left","0px");
+		}
+		else {
+			$("#aiyun-sidebar-bg").css("display","block");
+			$("#aiyun-sidebar").css("display","block");
+			$("#aiyun-sidebar-stitch").css("left","189px");
+			$("#aiyun-container").css("margin-left","206px");
+		}
+	}
 	
 	function updateBaseColor(hex)
 	{

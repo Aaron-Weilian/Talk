@@ -10,11 +10,9 @@ public class PowerBean extends DBUtil {
 	public CommonBean getUserPower(String userid) {
 		try {
 			StringBuffer sbSQL = new StringBuffer();
-			sbSQL.append("SELECT SYS_MODULE.ID AS MODULEID,SYS_BUSNODE.ID AS BUSNODEID,'1' AS LVALUE ");
-			sbSQL.append("FROM SYS_MODULE ");
-			sbSQL.append("LEFT JOIN SYS_BUSNODE ON SYS_MODULE.ID=SYS_BUSNODE.MODULEID ");
-			sbSQL.append("LEFT JOIN USER_AUTH ON USER_AUTH.BUSNODEID=SYS_BUSNODE.ID AND USER_AUTH.MODULEID=SYS_MODULE.ID AND USER_AUTH.USERID='"+userid+"' ");
-			sbSQL.append("ORDER BY SYS_MODULE.ID");
+			sbSQL.append("SELECT u.id,p.module,p.name,p.url ");
+			sbSQL.append("FROM u_user u, u_user_role ur, u_role r, u_role_permission rp, u_permission p ");
+			sbSQL.append("WHERE	u.id = ur.uid AND ur.rid = rp.rid and rp.pid = p.id and ur.rid = r.id and r.status = 1 and u.status = 1 and p.status=1");
 			DataBaseObject dbo = getDataBaseObject();
 			CommonBean cb = dbo.getData(sbSQL.toString());
 			
