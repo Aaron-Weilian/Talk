@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 //import com.paink.module.trade.trade.bean.TradeBean;
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.control.web.RequestHandlerSupport;
+import com.aiyun.common.taglib.model.TableModel;
 import com.aiyun.common.vo.CommonBean;
-import com.aiyun.common.vo.TableBean;
 /**
  * @author Administrator
  *
@@ -45,7 +45,7 @@ public class testRequestHandler extends RequestHandlerSupport {
 		testBean.addRow(vecRow2);
 		
 		
-		TableBean tb = new TableBean(testBean);
+		TableModel tb = new TableModel(testBean);
 		tb.setSName(testBean.getColNames());
 		tb.setChName(new String[] { "T1", "T2","T3" ,"T4" ,"CSS grade"});
 		tb.setTableClass("aiyun-datatable aiyun-table");

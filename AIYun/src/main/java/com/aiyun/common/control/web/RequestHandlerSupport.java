@@ -1,7 +1,3 @@
-// Decompiled by DJ v2.9.9.60 Copyright 2000 Atanas Neshkov  Date: 2004-07-13 9:37:49
-// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
-// Decompiler options: packimports(3) 
-// Source File Name:   RequestHandlerSupport.java
 
 package com.aiyun.common.control.web;
 

@@ -14,6 +14,12 @@
 		<attribute><name>parax</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
 		<attribute><name>num</name><required>false</required><rtexprvalue>true</rtexprvalue></attribute>
 	</tag>
+	<tag>
+        <name>MenuTag</name>
+        <tagclass>com.aiyun.common.taglib.MenuTag</tagclass>
+        <bodycontent>jsp</bodycontent>
+        <attribute><name>menus</name><required>true</required><rtexprvalue>true</rtexprvalue></attribute>
+    </tag>
 </taglib>
 
 

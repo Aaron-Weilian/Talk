@@ -7,19 +7,23 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
+import com.aiyun.common.taglib.model.TableModel;
 import com.aiyun.common.util.Function;
 import com.aiyun.common.util.Log;
 import com.aiyun.common.vo.CommonBean;
-import com.aiyun.common.vo.TableBean;
 
 public class TableTag extends BodyTagSupport {
 
-	private TableBean tb = null;
+    private static final long serialVersionUID = -1967315274595528339L;
+    private TableModel tb = null;
 	private String width = "100%";
 	private String height = "100%";
 	private boolean num = true;
     private String parax="";
 	public int doStartTag() throws JspException {
+	    
+	    if(tb==null) return 0;
+	    
 		String[] sName = tb.getSName();
 		String[] chName = tb.getChName();
 		String[] colWidth = tb.getColWidth();
@@ -90,7 +94,7 @@ public class TableTag extends BodyTagSupport {
 	/**
 	 * @return
 	 */
-	public TableBean getTb() {
+	public TableModel getTb() {
 		return tb;
 	}
 
@@ -131,7 +135,7 @@ public class TableTag extends BodyTagSupport {
 	/**
 	 * @param bean
 	 */
-	public void setTb(TableBean bean) {
+	public void setTb(TableModel bean) {
 		tb = bean;
 	}
 

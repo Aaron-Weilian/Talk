@@ -19,6 +19,26 @@ public class UserBean extends DBUtil implements IBusnessObject {
 
 	public static final String OBJECT_NAME = "users";
 
+	public CommonBean login() {
+	    StringBuffer bsSQL = new StringBuffer();
+        bsSQL.append("SELECT U.ID,U.USERNAME,URL AS B_POS \n");
+        bsSQL.append("FROM U_USER U \n");
+        String strSQL = bsSQL.toString();
+        
+        try {
+            DataBaseObject dbo = getDataBaseObject();
+            CommonBean op = dbo.getData(strSQL);
+            return op;
+        } catch (Exception e) {
+            Log.error(this, "User login fail," + e.getMessage());
+            getErrMsgBean().addCommonMessage("\"User login fail," + e.getMessage());
+            e.printStackTrace();
+            return null;
+        } finally {
+            rollback();
+        }
+	}
+	
 	public CommonBean getPermission() {
 		StringBuffer bsSQL = new StringBuffer();
 		bsSQL.append("SELECT M.ID AS M_ID,M.NAME AS M_SNAME,URL AS B_POS \n");

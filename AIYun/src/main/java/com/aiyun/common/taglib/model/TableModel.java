@@ -1,8 +1,10 @@
-package com.aiyun.common.vo;
+package com.aiyun.common.taglib.model;
 
 import java.util.Map;
 
-public class TableBean {
+import com.aiyun.common.vo.CommonBean;
+
+public class TableModel {
 
 	private CommonBean dataBean = null;
 	private String[] sName = null;
@@ -13,10 +15,10 @@ public class TableBean {
 	private Map<String,String> rowClass ;
 	private Map<String,String> colClass ;
 	
-	public TableBean() {
+	public TableModel() {
 	}
 
-	public TableBean(CommonBean dataBean) {
+	public TableModel(CommonBean dataBean) {
 		this.dataBean = dataBean;
 	}
 

@@ -51,5 +51,10 @@
   <url-mapping url="/test" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" screen="test" >
     <request-handler-class>com.aiyun.module.testRequestHandler</request-handler-class>
   </url-mapping>
+  
+  <!--测试页面--> 
+  <url-mapping url="/login" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" screen="home" >
+    <request-handler-class>com.aiyun.sys.user.controller.UserLoginRequestHandler</request-handler-class>
+  </url-mapping>
 
 </request-mappings>

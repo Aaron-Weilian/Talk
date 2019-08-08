@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="com.aiyun.common.vo.CommonBean"%>
-<%@ page import="com.aiyun.common.vo.TableBean"%>
+<%@ page import="com.aiyun.common.taglib.model.TableModel"%>
 <%@ page import="com.aiyun.common.util.Function"%>
 <%@ taglib prefix="aiyun" uri="/WEB-INF/common.tld"%>
 <%@ include file="/jsp/common/headerRef.jsp"%>
@@ -14,7 +14,7 @@
 
     
 <%
-        TableBean cpBean = (TableBean)request.getAttribute("ok");
+        TableModel cpBean = (TableModel)request.getAttribute("ok");
 %>
 
     <jsp:include page="/jsp/common/headerInfo.jsp" flush="true"/>

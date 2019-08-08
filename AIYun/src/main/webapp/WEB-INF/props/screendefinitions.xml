@@ -52,5 +52,11 @@
     <screen-name>test</screen-name>
     <template>/jsp/test/test.jsp</template>
   </screen>	
+  
+  <!--测试页面-->
+  <screen>
+    <screen-name>home</screen-name>
+    <template>/jsp/test/test.jsp</template>
+  </screen> 
 
 </screen-definitions>
