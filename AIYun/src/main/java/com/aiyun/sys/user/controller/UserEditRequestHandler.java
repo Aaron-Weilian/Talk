@@ -1,3 +1,9 @@
+/*
+ * �������� 2004-9-3
+ *
+ * �����������ļ�ģ��Ϊ
+ * ���� > ��ѡ�� > Java > �������� > �����ע��
+ */
 package com.aiyun.sys.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,24 +13,26 @@ import com.aiyun.common.control.web.RequestHandlerSupport;
 import com.aiyun.common.vo.CommonBean;
 import com.aiyun.sys.user.bean.UserBean;
 
-public class UserEditRequestHandler extends RequestHandlerSupport {
+/**
+ * @author Liun
+ *
+ * ��������������ע�͵�ģ��Ϊ
+ * ���� > ��ѡ�� > Java > �������� > �����ע��
+ */
+public class UserDelRequestHandler extends RequestHandlerSupport {
 
 	public void processRequest(HttpServletRequest request) throws CommonException {
 
 		String userID = parameter.getParameter("id");
 		CommonBean cbUser = (CommonBean) request.getSession().getAttribute("_userinfo");
 		UserBean userBean = new UserBean();
-		CommonBean userInfo = userBean.getUserInfo(cbUser, userID);
+		userBean.delUser(cbUser, userID);
 		if (userBean.getErrMsgBean().getCommonMessage() != null) {
-			CommonBean userList = userBean.getUserList(cbUser);
 			request.setAttribute("_errmsgbean", userBean.getErrMsgBean());
-			request.setAttribute("databean", userList);
-		} else {
-			CommonBean userList = userBean.getUserList(cbUser);
-			request.setAttribute("databean", userList);
-			request.setAttribute("userbean", userInfo);
-			request.setAttribute("id", userID);
 		}
+		CommonBean userList = userBean.getUserList(cbUser);
+		request.setAttribute("databean", userList);
+
 	}
 
 }
