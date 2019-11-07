@@ -1,4 +1,4 @@
-package com.aiyun.common.util;
+package com.aiyun.common.tool;
 
 import org.apache.log4j.Logger;
 

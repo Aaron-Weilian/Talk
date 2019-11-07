@@ -1,4 +1,4 @@
-package com.aiyun.common.bo;
+package com.aiyun.common.po;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.Vector;
 
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.StrTool;
+import com.aiyun.common.tool.Log;
+import com.aiyun.common.tool.StrTool;
 import com.aiyun.common.vo.CommonBean;
 
 public class DataBaseObject {

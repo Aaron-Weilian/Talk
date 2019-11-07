@@ -1,4 +1,4 @@
-package com.aiyun.common.cache;
+package com.aiyun.common.manager;
 
 import java.util.HashMap;
 import java.util.Map;

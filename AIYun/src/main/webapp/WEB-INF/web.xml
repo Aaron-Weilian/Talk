@@ -9,8 +9,8 @@
 		<param-value>classpath</param-value>
 	</context-param> -->
 	<context-param>
-		<param-name>appl.props.type</param-name>
-		<param-value>WEB_RESOURCE</param-value>
+		<param-name>appl.config.path</param-name>
+		<param-value>/WEB-INF/props</param-value>
 	</context-param>
 	<servlet>
 		<servlet-name>BaseServlet</servlet-name>

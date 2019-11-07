@@ -15,18 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//import org.apache.commons.fileupload.FileItem;
-//import org.apache.commons.fileupload.FileItemFactory;
-//import org.apache.commons.fileupload.RequestContext;
-//import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-//import org.apache.commons.fileupload.servlet.ServletFileUpload;
-//import org.apache.commons.fileupload.servlet.ServletRequestContext;
-
-import com.aiyun.common.bo.DataBaseObject;
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.Oid;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
+import com.aiyun.common.tool.Oid;
 import com.aiyun.common.vo.CommonBean;
 //import com.paink.module.pub.bean.OperFile;
 //import com.paink.sys.notice.bean.NoticeBean;

@@ -1,4 +1,4 @@
-package com.aiyun.common.util;
+package com.aiyun.common.tool;
 
 import java.security.MessageDigest;
 import java.util.StringTokenizer;

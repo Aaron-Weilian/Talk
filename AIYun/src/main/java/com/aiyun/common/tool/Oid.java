@@ -1,4 +1,4 @@
-package com.aiyun.common.util;
+package com.aiyun.common.tool;
 public class Oid {
 	private static java.security.SecureRandom sr = new java.security.SecureRandom();
 	private static String HDSeries = null;

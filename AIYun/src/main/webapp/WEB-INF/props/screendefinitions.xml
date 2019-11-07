@@ -49,6 +49,12 @@
   <!--**************************************************************************************************************-->	
   <!--测试页面-->
   <screen>
+    <screen-name>default</screen-name>
+    <template>/index.jsp</template>
+  </screen>
+  
+  <!--测试页面-->
+  <screen>
     <screen-name>test</screen-name>
     <template>/jsp/test/test.jsp</template>
   </screen>	
@@ -57,6 +63,22 @@
   <screen>
     <screen-name>home</screen-name>
     <template>/jsp/test/test.jsp</template>
+  </screen>
+  
+  <screen>
+    <screen-name>permissionlist</screen-name>
+    <template>/jsp/user/permissionlist.jsp</template>
+  </screen>
+  
+  <screen>
+    <screen-name>userHome</screen-name>
+    <template>/jsp/user/userlist.jsp</template>
   </screen> 
+  
+  <screen>
+    <screen-name>userInfo</screen-name>
+    <template>/jsp/user/userinfo.jsp</template>
+  </screen> 
+
 
 </screen-definitions>

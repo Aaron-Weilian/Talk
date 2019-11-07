@@ -4,7 +4,7 @@
  * �����������ļ�ģ��Ϊ
  * ���� > ��ѡ�� > Java > �������� > �����ע��
  */
-package com.aiyun.common.util;
+package com.aiyun.common.tool;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

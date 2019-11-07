@@ -20,10 +20,12 @@ import org.dom4j.Element;
 
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.control.exception.SystemException;
-import com.aiyun.common.util.FileResourceManager;
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.ResourceManager;
-import com.aiyun.common.util.ServletResourceManager;
+import com.aiyun.common.dict.Constants;
+import com.aiyun.common.manager.FileResourceManager;
+import com.aiyun.common.manager.ResourceManager;
+import com.aiyun.common.manager.ServletResourceManager;
+import com.aiyun.common.tool.Log;
+import com.aiyun.common.vo.CommonBean;
 
 public class BaseServlet extends HttpServlet {
 
@@ -37,12 +39,7 @@ public class BaseServlet extends HttpServlet {
 
 	public void init() throws ServletException {
 		super.init();
-		//������Ϣ
-//		System.setProperty("http.proxySet", getInitParameter("http.proxySet")); 
-//		System.setProperty("http.proxyHost", getInitParameter("http.proxyHost")); 
-//		System.setProperty("http.proxyPort", getInitParameter("http.proxyPort"));
-//		System.setProperty("http.proxyUser", getInitParameter("http.proxyUser"));
-//		System.setProperty("http.proxyPassword", getInitParameter("http.proxyPassword"));
+		
 		resourceManager = null;
 
 		if (getServletContext().getAttribute(ScreenFlowManager.KEY_NAME) != null) {
@@ -52,7 +49,9 @@ public class BaseServlet extends HttpServlet {
 		if (getServletContext().getAttribute(RequestProcessor.KEY_NAME) != null) {
 			getServletContext().removeAttribute(RequestProcessor.KEY_NAME);
 		}
-
+		
+		System.setProperty(PROPERTY_FOLDER_KEY_NAME, Thread.currentThread().getContextClassLoader().getResource("").getPath()); 
+		
 		createResourceManager();
 		getLogger();
 		Class self = getClass();
@@ -69,6 +68,9 @@ public class BaseServlet extends HttpServlet {
 		if (pathInfo == null) {
 			pathInfo = "";
 		}
+		
+		
+		
 		if (pathInfo.indexOf(".") != -1) {
 			try {
 				request.getRequestDispatcher(pathInfo).forward(request, response);
@@ -80,6 +82,11 @@ public class BaseServlet extends HttpServlet {
 				throw new CommonException("the page" + pathInfo + "forward fail");
 			}
 		}
+		
+		
+		
+		
+		
 		request.setAttribute("pathInfo", pathInfo);
 		ServletContext servletContext = getServletContext();
 
@@ -139,11 +146,27 @@ public class BaseServlet extends HttpServlet {
 		}
 	}
 
-	protected void processResponce(
-		HttpServletRequest httpservletrequest,
-		HttpServletResponse httpservletresponse,
-		ScreenFlowManager screenflowmanager)
-		throws ServletException, IOException {
+	/**
+     * @return
+     */
+    private boolean validateLogin() {
+        // TODO Auto-generated method stub
+        
+        return false;
+    }
+
+    /**
+     * @param pathInfo
+     * @return
+     */
+    private boolean validatePermission(String pathInfo) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    protected void processResponce(HttpServletRequest httpservletrequest,HttpServletResponse httpservletresponse,ScreenFlowManager screenflowmanager)
+		throws ServletException, IOException
+    {
 		if (httpservletresponse.isCommitted())
 			return;
 		Locale locale = (Locale)httpservletrequest.getSession().getAttribute("language");
@@ -210,45 +233,32 @@ public class BaseServlet extends HttpServlet {
 
 	protected void createResourceManager() {
 		ServletContext servletcontext = getServletContext();
-		String s = servletcontext.getInitParameter("appl.props.type");
-		String s1 = servletcontext.getInitParameter(PROPERTY_FOLDER_KEY_NAME);
-		if (s != null && s.length() > 0) {
-			if (s.equals("WEB_RESOURCE")) {
-				if (s1 == null || s1.length() == 0)
-					s1 = "/WEB-INF/props";
-				resourceManager = new ServletResourceManager(getServletContext());
-			} else {
-				if (s1 == null || s1.length() == 0) {
-					s1 = System.getProperty(PROPERTY_FOLDER_KEY_NAME);
-					if (s1 == null)
-						throw new CommonException("Please entry a \"appl.props.path\" in web.xml or a system property.");
-				}
-				resourceManager = new FileResourceManager(s1);
-			}
-		} else {
-			s1 = System.getProperty(PROPERTY_FOLDER_KEY_NAME);
-			if (s1 == null || s1.length() == 0)
-				throw new CommonException("Please entry a \"appl.props.path\" in a system property.");
-			resourceManager = new FileResourceManager();
-		}
-		resourceManager.setPath(s1);
+		String configPath = servletcontext.getInitParameter("appl.config.path");
+		if (configPath == null) {
+		    configPath = System.getProperty(PROPERTY_FOLDER_KEY_NAME);
+        }  
+		if (configPath == null || configPath.length() == 0) {
+		    configPath = "/WEB-INF/props";
+        }
+		resourceManager = new ServletResourceManager(getServletContext());
+		resourceManager.setPath(configPath);
 		System.out.println("ResourceManager is ".concat(String.valueOf(String.valueOf(resourceManager))));
-		System.out.println("Property path is ".concat(String.valueOf(String.valueOf(s1))));
+		System.out.println("Property path is ".concat(String.valueOf(String.valueOf(configPath))));
 	}
 
 	public static ResourceManager getResourceManager() {
 		return resourceManager;
 	}
 
-	private List getChildElements(Element element) {
-		ArrayList arraylist = new ArrayList();
-		if (element != null) {
-			Element element1;
-			for (Iterator iterator = element.elementIterator(); iterator.hasNext(); arraylist.add(element1))
-				element1 = (Element)iterator.next();
-		}
-		return arraylist;
-	}
+//	private List getChildElements(Element element) {
+//		ArrayList arraylist = new ArrayList();
+//		if (element != null) {
+//			Element element1;
+//			for (Iterator iterator = element.elementIterator(); iterator.hasNext(); arraylist.add(element1))
+//				element1 = (Element)iterator.next();
+//		}
+//		return arraylist;
+//	}
 
 	private void getLogger() {
 		Properties p = new Properties();

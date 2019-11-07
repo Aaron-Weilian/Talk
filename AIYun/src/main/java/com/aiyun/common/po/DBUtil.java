@@ -1,9 +1,9 @@
-package com.aiyun.common.bo;
+package com.aiyun.common.po;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.aiyun.common.util.Log;
+import com.aiyun.common.tool.Log;
 import com.aiyun.common.vo.CommonBean;
 
 public abstract class DBUtil {

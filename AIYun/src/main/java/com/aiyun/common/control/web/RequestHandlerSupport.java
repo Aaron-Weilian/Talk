@@ -5,12 +5,10 @@ import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.util.Log;
-
-// Referenced classes of package mycrm.pub.control.web:
-//            FlowHandler, RequestParameter
+import com.aiyun.common.tool.Log;
 
 public abstract class RequestHandlerSupport implements RequestHandler {
 
@@ -42,6 +40,23 @@ public abstract class RequestHandlerSupport implements RequestHandler {
 		return parameter.getParameter(s);
 	}
 
+	public Object getSessionAttribute(HttpServletRequest request, String name){
+	  //Assert.notNull(request, "Request must not be null");
+	  HttpSession session =request.getSession(false);
+	  return (session != null ?session.getAttribute(name) : null);
+	}
+	
+    public void setSessionAttribute(HttpServletRequest request, String name, Object value) {
+        if (value != null) {
+            request.getSession().setAttribute(name, value);
+        } else {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.removeAttribute(name);
+            }
+        }
+    }
+	
 	public abstract void processRequest(HttpServletRequest request) throws CommonException;
 
 	protected ServletContext context;

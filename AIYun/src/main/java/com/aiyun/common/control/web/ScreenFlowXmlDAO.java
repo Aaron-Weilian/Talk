@@ -21,7 +21,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.tool.Log;
 
 // Referenced classes of package mycrm.pub.control.web:
 //            URLMapping, Screen, Parameter

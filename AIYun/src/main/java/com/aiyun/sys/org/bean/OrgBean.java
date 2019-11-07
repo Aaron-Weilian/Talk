@@ -1,23 +1,25 @@
 package com.aiyun.sys.org.bean;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.UUID;
 
-import com.aiyun.common.bo.DBUtil;
-import com.aiyun.common.bo.DataBaseObject;
-import com.aiyun.common.bo.IBusnessObject;
-import com.aiyun.common.cache.CacheManager;
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.power.PowerSrv;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.Oid;
+import com.aiyun.common.manager.CacheManager;
+import com.aiyun.common.permission.PermissionServer;
+import com.aiyun.common.po.DBUtil;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.po.IBusnessObject;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
+import com.aiyun.common.tool.Oid;
 import com.aiyun.common.vo.CommonBean;
 
 /**
  */
 public class OrgBean extends DBUtil	implements IBusnessObject {
 
-	public static final String OBJECT_NAME = "users";
+	public static final String OBJECT_NAME = "Org";
 
 	public CommonBean getOperationPower(CommonBean cbUser, String userid) {
 		StringBuffer bsSQL = new StringBuffer();
@@ -70,7 +72,7 @@ public class OrgBean extends DBUtil	implements IBusnessObject {
 			
 			if (bFlag) {
 				commit();
-				PowerSrv.getInstance().removeCache(userid);
+				PermissionServer.getInstance().removeCache(userid);
 			} else {
 				throw new CommonException("δ֪����");
 			}
@@ -105,57 +107,62 @@ public class OrgBean extends DBUtil	implements IBusnessObject {
 		}
 	}
 
-	public boolean saveUser(CommonBean cbUser, CommonBean userInfo) {
+	public boolean saveUser(CommonBean orgInfo) {
 		try {
 			
+		    String uuid = UUID.randomUUID().toString();
+		    
+		    if (isDuplicate("u_org", "orgCode", null, orgInfo.getValue("orgCode"), "new")) {
+		        CommonBean cb = getOrgInfoByCode(orgInfo.getValue("orgCode"));
+		        uuid = cb.getValue("orgid");
+            }
+		    
+		    
+		    StringBuffer sql = new StringBuffer("replace into u_org ");
+	        sql.append("(orgid,orgCode,orgName,orgDesc,type,duns,email,phone,orgParentId)")
+	           .append("values(")
+	           .append("'").append(uuid).append("',")
+	           .append("'").append(orgInfo.getValue("orgCode")).append("',")
+	           .append("'").append(orgInfo.getValue("orgName")).append("',")
+	           .append("'").append(orgInfo.getValue("orgDesc")).append("',")
+	           .append("'").append(orgInfo.getValue("type")).append("',")
+	           .append("'").append(orgInfo.getValue("duns")).append("',")
+	           .append("'").append(orgInfo.getValue("email")).append("',")
+	           .append("'").append(orgInfo.getValue("phone")).append("',")
+	           .append("'").append(orgInfo.getValue("orgParentId")).append("')");
+	                
+	                
+
+	        System.out.println(sql.toString());
+		    
 			boolean bFlag = true;
-			userInfo.setBeanName("users");
-			String userID = userInfo.getValue("id");
-			if (userID.equals("")) {
-				if (isDuplicate("users", "loginid", null, userInfo.getValue("loginid"), "new")) {
-					throw new CommonException("��½ID�ظ���");
-				}
-				userInfo.setAttribute("insert");
-				userID = Oid.getOid();
-				userInfo.setCellObj(0, "id", userID);
-				userInfo.setCellObj(0, "spassword", Function.Encmd5(userInfo.getCellStr(0,"spassword")));
-			} else {
-				if (isDuplicate("users", "loginid", userID, userInfo.getValue("loginid"), "edit")) {
-					throw new CommonException("��½ID�ظ���");
-				}
-				userInfo.setAttribute("update");
-				userInfo.removeColumn("spassword");
-			}
 			DataBaseObject dbo = getDataBaseObject();
-			bFlag = bFlag && dbo.execute(userInfo);
-			//ÿһ���˶���ʹ�ø�����Ϣ
-			String sql = "INSERT INTO USER_AUTH (USERID,MODULEID,BUSNODEID) VALUES('"+userID+"','13','38')";
-			bFlag = bFlag && dbo.execute(sql);
+			bFlag = bFlag && dbo.execute(sql.toString());
 			
 			if (bFlag) {
 				commit();
 			} else {
-				throw new CommonException("δ֪����");
+				throw new CommonException("");
 			}
 			return bFlag;
 		} catch (Exception e) {
 			rollback();
-			getErrMsgBean().addCommonMessage("�����û���������" + e.getMessage());
+			getErrMsgBean().addCommonMessage("" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public CommonBean getUserInfo(CommonBean cbUser, String userID) {
+	public CommonBean getOrgInfoByCode(String orgCode) {
 		try {
-			String strSql = "SELECT ID,sName,LoginID,Dep,Duty FROM Users WHERE ID='" + userID + "' ";
+			String strSql = "SELECT * FROM u_org WHERE orgCode='" + orgCode + "' ";
 			DataBaseObject dbo = getDataBaseObject();
 			CommonBean cb = dbo.getData(strSql);
 			cb = Function.formatBean(cb);
 			return cb;
 		} catch (Exception e) {
-			Log.error(this, "ȡ���û��б�������" + e.getMessage());
-			getErrMsgBean().addCommonMessage("ȡ���û��б�������" + e.getMessage());
+			Log.error(this, "" + e.getMessage());
+			getErrMsgBean().addCommonMessage("" + e.getMessage());
 			e.printStackTrace();
 			return null;
 		} finally {

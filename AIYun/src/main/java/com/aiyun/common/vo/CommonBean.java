@@ -3,7 +3,7 @@ package com.aiyun.common.vo;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import com.aiyun.common.util.Log;
+import com.aiyun.common.tool.Log;
 
 public class CommonBean implements java.io.Serializable {
 
@@ -53,7 +53,7 @@ public class CommonBean implements java.io.Serializable {
 			vecData = new Vector();
 		String noputvalueflag = "noputvalue";
 		boolean bNoPutValue = true;
-		if (getColIndex(sColName) != -1) { //�Ѿ�����һ����¼
+		if (getColIndex(sColName) != -1) { 
 			for (int i = 0; i < vecData.size(); i++) {
 				Object obj = ((Vector) vecData.elementAt(i)).elementAt(getColIndex(sColName));
 				if (obj != null && obj.equals(noputvalueflag)) {

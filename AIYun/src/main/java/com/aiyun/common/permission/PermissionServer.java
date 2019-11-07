@@ -1,25 +1,25 @@
-package com.aiyun.common.power;
+package com.aiyun.common.permission;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.power.bean.PowerBean;
+import com.aiyun.common.permission.bean.PermissionBean;
 import com.aiyun.common.vo.CommonBean;
 
-public class PowerSrv {
+public class PermissionServer {
 
-	private static PowerSrv instance = new PowerSrv();
+	private static PermissionServer instance = new PermissionServer();
 	private Map map = null;
 
-	public static PowerSrv getInstance() {
+	public static PermissionServer getInstance() {
 		if (instance == null) {
-			instance = new PowerSrv();
+			instance = new PermissionServer();
 		}
 		return instance;
 	}
 
-	private PowerSrv() {
+	private PermissionServer() {
 		map = new HashMap();
 	}
 
@@ -27,8 +27,8 @@ public class PowerSrv {
 		Map userPower = (Map) map.get(userid);
 		userPower=null;
 		if (userPower == null) {
-			PowerBean bean = new PowerBean();
-			CommonBean cbPower = bean.getUserPower(userid);
+			PermissionBean bean = new PermissionBean();
+			CommonBean cbPower = bean.getUserPermission(userid);
 			userPower = new HashMap();
 			for (int i = 0; i < cbPower.getRowNum(); i++) {
 				String mid = cbPower.getCellStr(i, "moduleid");

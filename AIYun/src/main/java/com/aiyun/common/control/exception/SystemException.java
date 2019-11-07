@@ -6,9 +6,6 @@ public class SystemException extends Exception
     implements Serializable
 {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8821432727977886456L;
 	
 	public SystemException()

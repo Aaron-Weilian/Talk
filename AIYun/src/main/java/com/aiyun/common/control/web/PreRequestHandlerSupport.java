@@ -1,8 +1,3 @@
-// Decompiled by DJ v2.9.9.60 Copyright 2000 Atanas Neshkov  Date: 2004-07-13 9:37:13
-// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
-// Decompiler options: packimports(3) 
-// Source File Name:   PreRequestHandlerSupport.java
-
 package com.aiyun.common.control.web;
 
 import java.util.HashMap;
@@ -11,10 +6,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.util.Log;
-
-// Referenced classes of package mycrm.pub.control.web:
-//            PreRequestHandler, RequestParameter
+import com.aiyun.common.tool.Log;
 
 public abstract class PreRequestHandlerSupport implements PreRequestHandler {
 

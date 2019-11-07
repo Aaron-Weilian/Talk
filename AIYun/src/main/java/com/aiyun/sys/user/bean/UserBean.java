@@ -2,15 +2,15 @@ package com.aiyun.sys.user.bean;
 
 import java.sql.SQLException;
 
-import com.aiyun.common.bo.DBUtil;
-import com.aiyun.common.bo.DataBaseObject;
-import com.aiyun.common.bo.IBusnessObject;
-import com.aiyun.common.cache.CacheManager;
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.power.PowerSrv;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.Oid;
+import com.aiyun.common.manager.CacheManager;
+import com.aiyun.common.permission.PermissionServer;
+import com.aiyun.common.po.DBUtil;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.po.IBusnessObject;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
+import com.aiyun.common.tool.Oid;
 import com.aiyun.common.vo.CommonBean;
 
 /**
@@ -19,10 +19,14 @@ public class UserBean extends DBUtil implements IBusnessObject {
 
 	public static final String OBJECT_NAME = "users";
 
-	public CommonBean login() {
+	public CommonBean login(String username, String password) {
 	    StringBuffer bsSQL = new StringBuffer();
-        bsSQL.append("SELECT U.ID,U.USERNAME,URL AS B_POS \n");
-        bsSQL.append("FROM U_USER U \n");
+        bsSQL.append("SELECT U.* \n")
+             .append("FROM U_USER U \n")
+             .append("where 1=1 \n")
+             .append("  and U.USERNAME='").append(username).append("' \n")
+             .append("  and U.PSWD='").append(password).append("' \n")
+             .append("  and U.STATUS=1 \n");
         String strSQL = bsSQL.toString();
         
         try {
@@ -111,7 +115,7 @@ public class UserBean extends DBUtil implements IBusnessObject {
 			
 			if (bFlag) {
 				commit();
-				PowerSrv.getInstance().removeCache(userid);
+				PermissionServer.getInstance().removeCache(userid);
 			} else {
 				throw new CommonException("δ֪����");
 			}
@@ -126,19 +130,19 @@ public class UserBean extends DBUtil implements IBusnessObject {
 
 	public CommonBean getUserList(CommonBean cbUser) {
 		try {
-			String strSql = "SELECT ID,sName,LoginID,Dep,Duty FROM Users ORDER BY LoginID ";
+			String strSql = "select u.username,r.name,u.status from u_user u, u_role r , u_user_role ur where u.id = ur.uid and r.id = ur.rid and u.orgid='"+cbUser.getValue("orgid")+"' ";
 			DataBaseObject dbo = getDataBaseObject();
 			CommonBean cb = dbo.getData(strSql);
 			cb = Function.formatBean(cb);
-			String strSql1 = "select id,sname from dept";
-			CommonBean cbDept = dbo.getData(strSql1);
-			String[][] arrDept = Function.bean2arr(cbDept);
-			cb.setColListValue("dep",arrDept);
+//			String strSql1 = "select id,sname from dept";
+//			CommonBean cbDept = dbo.getData(strSql1);
+//			String[][] arrDept = Function.bean2arr(cbDept);
+//			cb.setColListValue("dep",arrDept);
 
 			return cb;
 		} catch (Exception e) {
-			Log.error(this, "ȡ���û��б�������" + e.getMessage());
-			getErrMsgBean().addCommonMessage("ȡ���û��б�������" + e.getMessage());
+			Log.error(this, "getUserList:" + e.getMessage());
+			getErrMsgBean().addCommonMessage("getUserList:" + e.getMessage());
 			e.printStackTrace();
 			return null;
 		} finally {
@@ -154,7 +158,7 @@ public class UserBean extends DBUtil implements IBusnessObject {
 			String userID = userInfo.getValue("id");
 			if (userID.equals("")) {
 				if (isDuplicate("users", "loginid", null, userInfo.getValue("loginid"), "new")) {
-					throw new CommonException("��½ID�ظ���");
+					throw new CommonException("saveUser");
 				}
 				userInfo.setAttribute("insert");
 				userID = Oid.getOid();
@@ -162,7 +166,7 @@ public class UserBean extends DBUtil implements IBusnessObject {
 				userInfo.setCellObj(0, "spassword", Function.Encmd5(userInfo.getCellStr(0,"spassword")));
 			} else {
 				if (isDuplicate("users", "loginid", userID, userInfo.getValue("loginid"), "edit")) {
-					throw new CommonException("��½ID�ظ���");
+					throw new CommonException("saveUser");
 				}
 				userInfo.setAttribute("update");
 				userInfo.removeColumn("spassword");
@@ -176,18 +180,18 @@ public class UserBean extends DBUtil implements IBusnessObject {
 			if (bFlag) {
 				commit();
 			} else {
-				throw new CommonException("δ֪����");
+				throw new CommonException("saveUser");
 			}
 			return bFlag;
 		} catch (Exception e) {
 			rollback();
-			getErrMsgBean().addCommonMessage("�����û���������" + e.getMessage());
+			getErrMsgBean().addCommonMessage("saveUser:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public CommonBean getUserInfo(CommonBean cbUser, String userID) {
+	public CommonBean getUserInfo(String userID) {
 		try {
 			String strSql = "SELECT ID,sName,LoginID,Dep,Duty FROM Users WHERE ID='" + userID + "' ";
 			DataBaseObject dbo = getDataBaseObject();
@@ -195,8 +199,8 @@ public class UserBean extends DBUtil implements IBusnessObject {
 			cb = Function.formatBean(cb);
 			return cb;
 		} catch (Exception e) {
-			Log.error(this, "ȡ���û��б�������" + e.getMessage());
-			getErrMsgBean().addCommonMessage("ȡ���û��б�������" + e.getMessage());
+			Log.error(this, "getUserInfo:" + e.getMessage());
+			getErrMsgBean().addCommonMessage("getUserInfo:" + e.getMessage());
 			e.printStackTrace();
 			return null;
 		} finally {
@@ -218,12 +222,12 @@ public class UserBean extends DBUtil implements IBusnessObject {
 			if (bFlag) {
 				commit();
 			} else {
-				throw new CommonException("δ֪����");
+				throw new CommonException("delUser");
 			}
 			return bFlag;
 		} catch (SQLException e) {
 			rollback();
-			getErrMsgBean().addCommonMessage("ɾ���û���������" + e.getMessage());
+			getErrMsgBean().addCommonMessage("delUser:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -232,7 +236,13 @@ public class UserBean extends DBUtil implements IBusnessObject {
 	public boolean bHasPower (CommonBean userbean, String obj) {
 		try {
 			DataBaseObject dbo = getDataBaseObject();
-			CommonBean cbPower = dbo.getData("Select userid From user_auth Where userid='"+userbean.getValue("id")+"' And (busnodeid=(Select Id From sys_busnode Where url='/"+obj+"') Or moduleid='01')");
+			StringBuffer sbSQL = new StringBuffer();
+            sbSQL.append("SELECT p.module ");
+            sbSQL.append("FROM u_user u, u_user_role ur, u_role r, u_role_permission rp, u_permission p ");
+            sbSQL.append("WHERE u.id = ur.uid AND ur.rid = rp.rid and rp.pid = p.id and ur.rid = r.id and r.status = 1 and u.status = 1 ");
+            sbSQL.append(" AND u.id = '").append(userbean.getValue("id")).append("'");
+            sbSQL.append(" AND p.buscode = '").append(obj.toString()).append("'");
+			CommonBean cbPower = dbo.getData(sbSQL.toString());
 			if (cbPower.getRowNum() == 0) {
 				return false;
 			}

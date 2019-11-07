@@ -8,10 +8,10 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.XMLWriter;
 
-import com.aiyun.common.bo.DBUtil;
-import com.aiyun.common.bo.DataBaseObject;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.po.DBUtil;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
 import com.aiyun.common.vo.CommonBean;
 
 /**

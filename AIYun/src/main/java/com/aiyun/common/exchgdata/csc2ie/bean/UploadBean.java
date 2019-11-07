@@ -5,10 +5,10 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.aiyun.common.bo.DBUtil;
-import com.aiyun.common.bo.DataBaseObject;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.po.DBUtil;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
 import com.aiyun.common.vo.CommonBean;
 
 public class UploadBean extends DBUtil {

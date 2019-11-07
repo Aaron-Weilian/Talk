@@ -1,4 +1,4 @@
-package com.aiyun.common.bo;
+package com.aiyun.common.po;
 
 public class ErrorMessageBean implements java.io.Serializable {
 

@@ -1,6 +1,6 @@
 package com.aiyun.common.exchgdata.csc2ie.bean;
 
-import com.aiyun.common.bo.DBUtil;
+import com.aiyun.common.po.DBUtil;
 
 public class UploadAcc extends DBUtil {
 	public boolean UpAcct() {

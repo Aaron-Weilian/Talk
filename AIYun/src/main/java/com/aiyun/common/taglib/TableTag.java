@@ -8,8 +8,8 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import com.aiyun.common.taglib.model.TableModel;
-import com.aiyun.common.util.Function;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.tool.Function;
+import com.aiyun.common.tool.Log;
 import com.aiyun.common.vo.CommonBean;
 
 public class TableTag extends BodyTagSupport {

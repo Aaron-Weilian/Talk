@@ -11,13 +11,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.aiyun.common.control.exception.CommonException;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.tool.Log;
 
-// Referenced classes of package mycrm.pub.control.web:
-//            FlowHandler, RequestParameter
 
-public abstract class FlowHandlerSupport
-    implements FlowHandler
+public abstract class FlowHandlerSupport implements FlowHandler
 {
 
     public FlowHandlerSupport()

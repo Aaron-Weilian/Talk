@@ -52,9 +52,30 @@
     <request-handler-class>com.aiyun.module.testRequestHandler</request-handler-class>
   </url-mapping>
   
-  <!--测试页面--> 
   <url-mapping url="/login" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" screen="home" >
     <request-handler-class>com.aiyun.sys.user.controller.UserLoginRequestHandler</request-handler-class>
+  </url-mapping>
+  
+  <url-mapping url="/permissionList" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" screen="permissionlist" >
+    <request-handler-class>com.aiyun.sys.permission.controller.PermissionListRequestHandler</request-handler-class>
+  </url-mapping>
+  
+   <!--**********************************************Company & Organization**********************************************************-->
+  <url-mapping url="/AddCompany" usePreProcessHandler="true" useRequestHandler="true" useFlowHandler="false" object="AddCompany" screen="permissionlist" >
+    <request-handler-class>com.aiyun.sys.org.controller.CompanyInfoEditSaveRequestHandler</request-handler-class>
+  </url-mapping>
+  
+  <!--***********************************************User**********************************************************-->
+  <url-mapping url="/userHome" usePreProcessHandler="true" useRequestHandler="true" useFlowHandler="false" object="userHome" screen="userHome" >
+    <request-handler-class>com.aiyun.sys.user.controller.UserHomeRequestHandler</request-handler-class>
+  </url-mapping>
+  
+  <url-mapping url="/userInfo" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" object="userInfo" screen="userInfo" >
+    <request-handler-class>com.aiyun.sys.user.controller.UserInfoRequestHandler</request-handler-class>
+  </url-mapping>
+  
+  <url-mapping url="/userEdit" usePreProcessHandler="false" useRequestHandler="true" useFlowHandler="false" object="userEdit" screen="userHome" >
+    <request-handler-class>com.aiyun.sys.user.controller.UserEditRequestHandler</request-handler-class>
   </url-mapping>
 
 </request-mappings>

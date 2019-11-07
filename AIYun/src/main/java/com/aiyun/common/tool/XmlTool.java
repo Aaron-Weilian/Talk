@@ -1,9 +1,9 @@
-package com.aiyun.common.util;
+package com.aiyun.common.tool;
 
 import javax.servlet.http.HttpSession;
 //import javax.servlet.jsp.PageContext;
 
-import com.aiyun.common.cache.CacheManager;
+import com.aiyun.common.manager.CacheManager;
 import com.aiyun.common.vo.CommonBean;
 
 public class XmlTool {

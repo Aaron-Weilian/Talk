@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.aiyun.common.control.exception.CommonException;
 import com.aiyun.common.control.exception.SystemException;
-import com.aiyun.common.util.Log;
-import com.aiyun.common.util.ResourceManager;
+import com.aiyun.common.manager.ResourceManager;
+import com.aiyun.common.tool.Log;
 
 // Referenced classes of package mycrm.pub.control.web:
 //            BaseServlet, ScreenFlowXmlDAO, Screen, URLMapping, 
@@ -21,7 +21,8 @@ import com.aiyun.common.util.ResourceManager;
 
 public class ScreenFlowManager implements Serializable {
  
-	public ScreenFlowManager() {
+    private static final long serialVersionUID = -8757186779836923500L;
+    public ScreenFlowManager() {
 		REQUEST_MAPPING_RESOURCE_NAME = "requestmappings.xml";
 		if (screens == null) {
 			screens = new HashMap();

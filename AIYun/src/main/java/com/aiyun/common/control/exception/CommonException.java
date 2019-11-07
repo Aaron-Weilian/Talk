@@ -5,9 +5,6 @@ import java.io.*;
 public class CommonException extends RuntimeException
     implements Serializable
 {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = -3559528178582941887L;
 	
 	public CommonException(String s)

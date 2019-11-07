@@ -1,13 +1,13 @@
-package com.aiyun.common.power.bean;
+package com.aiyun.common.permission.bean;
 
-import com.aiyun.common.bo.DBUtil;
-import com.aiyun.common.bo.DataBaseObject;
-import com.aiyun.common.util.Log;
+import com.aiyun.common.po.DBUtil;
+import com.aiyun.common.po.DataBaseObject;
+import com.aiyun.common.tool.Log;
 import com.aiyun.common.vo.CommonBean;
 
-public class PowerBean extends DBUtil {
+public class PermissionBean extends DBUtil {
 
-	public CommonBean getUserPower(String userid) {
+	public CommonBean getUserPermission(String userid) {
 		try {
 			StringBuffer sbSQL = new StringBuffer();
 			sbSQL.append("SELECT u.id,p.module,p.name,p.url ");
@@ -18,8 +18,8 @@ public class PowerBean extends DBUtil {
 			
 			return cb;
 		} catch (Exception e) {
-			Log.error(this, "ȡ���û�Ȩ�޷�������" + e.getMessage());
-			getErrMsgBean().addCommonMessage("ȡ���û�Ȩ�޷�������" + e.getMessage());
+			Log.error(this, "" + e.getMessage());
+			getErrMsgBean().addCommonMessage("" + e.getMessage());
 			e.printStackTrace();
 			return null;
 		} finally {

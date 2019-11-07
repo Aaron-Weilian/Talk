@@ -1,9 +1,4 @@
-// Decompiled by DJ v2.9.9.60 Copyright 2000 Atanas Neshkov  Date: 2004-07-13 9:32:36
-// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
-// Decompiler options: packimports(3) 
-// Source File Name:   ServletResourceManager.java
-
-package com.aiyun.common.util;
+package com.aiyun.common.manager;
 
 import java.io.*;
 import java.util.HashMap;
@@ -12,8 +7,7 @@ import javax.servlet.ServletContext;
 // Referenced classes of package mycrm.pub.util:
 //            ResourceManager
 
-public class ServletResourceManager
-    implements ResourceManager
+public class ServletResourceManager implements ResourceManager
 {
 
     public ServletResourceManager()

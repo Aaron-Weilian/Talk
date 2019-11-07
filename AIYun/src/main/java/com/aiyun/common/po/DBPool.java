@@ -1,4 +1,4 @@
-package com.aiyun.common.bo;
+package com.aiyun.common.po;
 
 import java.io.InputStream;
 import java.sql.Connection;

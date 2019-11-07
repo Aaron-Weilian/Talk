@@ -3,8 +3,8 @@ package com.aiyun.sys.controller;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import com.aiyun.common.bo.ErrorMessageBean;
 import com.aiyun.common.control.web.ExceptionHandler;
+import com.aiyun.common.po.ErrorMessageBean;
 
 /**
  * @author Aaron
